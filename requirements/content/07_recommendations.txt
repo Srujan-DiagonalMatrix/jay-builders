@@ -1,0 +1,33 @@
+SECTION ID: recommendations
+REFERENCE IMAGE: Recommendations.png
+
+HEADING
+RECOMMENDED BY HOMEOWNERS & LANDLORDS
+
+REVIEW 1
+Rating: 5
+Title: Full Property Renovation
+Body: Reliable, professional and easy to communicate with. The project was completed to a very high standard.
+Author: Andrew, Reading
+Platform: Google
+
+REVIEW 2
+Rating: 5
+Title: Kitchen Extension
+Body: Great team, tidy workers and excellent finish. We love our new kitchen and extra space.
+Author: Nisha, Windsor
+Platform: Checkatrade
+
+REVIEW 3
+Rating: 5
+Title: Bathroom Renovation
+Body: Very happy with the workmanship and attention to detail. Would definitely recommend.
+Author: Paul, Slough
+Platform: Trustpilot
+
+REVIEW 4
+Rating: 5
+Title: Roof & Exterior Works
+Body: Fixed our roof quickly and the rendering looks fantastic. Professional from start to finish.
+Author: Sarah, High Wycombe
+Platform: Houzz

@@ -1,0 +1,36 @@
+SECTION ID: home
+REFERENCE IMAGE: Header.png
+
+NAVIGATION
+Home
+Our Work
+Services
+Reviews
+About
+Contact
+
+PRIMARY CTA
+Request a Free Quote
+
+HEADLINE
+BUILDING TRUST.
+DELIVERING QUALITY.
+
+SUBHEAD
+COMPLETE RENOVATIONS, EXTENSIONS
+AND PROPERTY SERVICES YOU CAN RELY ON.
+
+TRUST POINTS
+Fully Insured
+Experienced Team
+On Time, On Budget
+Clear Quotations
+Quality Workmanship
+Emergency Call-outs
+
+SECONDARY CTA
+View Our Work
+
+FEATURED CUSTOMER QUOTE
+“JAY Builders transformed our home beautifully and the whole process was smooth and stress-free.”
+— Sarah & Mark, London

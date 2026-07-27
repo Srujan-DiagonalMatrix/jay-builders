@@ -1,0 +1,26 @@
+SECTION ID: customer-stories
+REFERENCE IMAGE: CustomerSays.png
+
+HEADING
+SEE WHAT OUR CUSTOMERS SAY
+
+SUBHEADING
+REAL CUSTOMERS. REAL PROJECTS. REAL RESULTS.
+
+STORY 1
+Title: Complete Home Renovation
+Location: Reading
+Duration label: 1:02
+
+STORY 2
+Title: Kitchen Extension
+Location: Maidenhead
+Duration label: 0:58
+
+STORY 3
+Title: Bathroom Renovation
+Location: Slough
+Duration label: 1:15
+
+CTA
+Watch More Customer Stories

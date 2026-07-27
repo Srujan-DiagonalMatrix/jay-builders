@@ -1,0 +1,8 @@
+JAY BUILDERS WEBSITE CONTENT PACKAGE
+
+Use each file as the source of truth for the corresponding UI section.
+Do not introduce additional sections, statistics, awards, pricing, blog content,
+team biographies, FAQs, newsletter forms, or other content not listed here.
+
+Reference image package: image-assets.zip
+Prototype reference: section-references/JAY_Builders.png

@@ -1,0 +1,46 @@
+SECTION ID: services
+REFERENCE IMAGE: CompleteBuildingServ.png
+
+HEADING
+COMPLETE BUILDING SERVICES UNDER ONE ROOF
+
+SERVICE 1
+Title: Complete Renovations
+Description: End-to-end property renovations and refurbishments.
+
+SERVICE 2
+Title: Building Extensions
+Description: Rear, side and double-storey extensions to create more space.
+
+SERVICE 3
+Title: Kitchens & Bathrooms
+Description: Design, supply and installation of beautiful kitchens and bathrooms.
+
+SERVICE 4
+Title: Interior Finishing
+Description: Plastering, flooring, carpentry, painting and decorating.
+
+SERVICE 5
+Title: Exterior Works
+Description: Roofing, rendering, driveways, patios and landscaping.
+
+SERVICE 6
+Title: Electrical & Plumbing
+Description: Electrical installations, plumbing, heating and drainage.
+
+SERVICE 7
+Title: Maintenance Services
+Description: Planned maintenance, repairs and landlord services.
+
+SERVICE 8
+Title: Emergency Call-outs
+Description: Fast response for urgent building, plumbing and electrical issues.
+
+SERVICE 9
+Title: Structural Work
+Description: Foundations, RSJs, damp proofing and underpinning.
+
+SERVICE GUIDANCE CARD
+Heading: Not sure which service you need?
+Body: Tell us about your project and we’ll guide you.
+CTA: Speak to JAY Builders

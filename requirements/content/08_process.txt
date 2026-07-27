@@ -1,0 +1,21 @@
+SECTION ID: process
+REFERENCE IMAGE: Process.png
+
+HEADING
+A CLEAR & SIMPLE PROCESS
+
+STEP 1
+Title: Tell Us About Your Project
+Description: Fill in the form and send us photos or videos of your property.
+
+STEP 2
+Title: Site Visit & Quotation
+Description: We assess the work, discuss your needs and provide a clear quotation.
+
+STEP 3
+Title: Planning & Delivery
+Description: We agree the schedule, organise the work and keep you updated throughout.
+
+STEP 4
+Title: Completion & Handover
+Description: We inspect the work with you and ensure everything is perfect before handover.

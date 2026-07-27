@@ -1,0 +1,21 @@
+SECTION ID: why-jay
+REFERENCE IMAGE: WhyJAY.png
+
+HEADING
+WHY CUSTOMERS CHOOSE JAY BUILDERS
+
+ITEM 1
+Title: Proven Work
+Description: See real projects, customer videos and before & after results before you decide.
+
+ITEM 2
+Title: One Team, Complete Delivery
+Description: We manage everything from start to finish so you don’t have to worry about a thing.
+
+ITEM 3
+Title: Exterior Works
+Description: Plastering, roofing, realistic guarantees and regular updates throughout your project.
+
+ITEM 4
+Title: Respect for Your Home
+Description: We keep your property clean, work carefully and minimise disruption.

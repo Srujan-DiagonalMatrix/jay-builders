@@ -1,0 +1,19 @@
+SECTION ID: urgent-assistance
+REFERENCE IMAGE: UrgentAssis.png
+
+HEADING
+NEED URGENT
+PROPERTY ASSISTANCE?
+
+BODY
+Emergency building, plumbing, electrical and repair call-outs may be available.
+
+PRIMARY CTA
+Call JAY Builders
+
+SECONDARY CTA
+Send an Urgent Enquiry
+
+IMPLEMENTATION NOTE
+On desktop this card sits to the right of the recommendations, process and form area.
+On mobile it becomes a normal full-width section and must not cover other content.

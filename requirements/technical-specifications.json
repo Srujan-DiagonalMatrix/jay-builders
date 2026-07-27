@@ -1,0 +1,378 @@
+{
+  "project": {
+    "name": "JAY Builders one-page website rebuild",
+    "version": "1.0.0",
+    "purpose": "Rebuild the existing UI to closely match the supplied prototype and remove content not represented in the approved layout.",
+    "implementation_instruction": "Treat JAY_Builders.png as the master visual reference and each named section image as the detailed visual reference for that section."
+  },
+  "codex_input_packages": {
+    "image_archive": {
+      "filename": "image-assets.zip",
+      "purpose": "Contains the master prototype, individual section references and reusable SVG icons.",
+      "root_folder": "image-assets",
+      "master_reference": "section-references/JAY_Builders.png"
+    },
+    "content_archive": {
+      "filename": "content.zip",
+      "purpose": "Contains separate plain-text content files for every page section.",
+      "root_folder": "content",
+      "manifest": "00_content_manifest.txt"
+    }
+  },
+  "source_of_truth_priority": [
+    "technical-specifications.json for behaviour, structure and responsive rules",
+    "image-assets.zip/section-references/JAY_Builders.png for overall composition",
+    "individual section reference images for spacing, proportions and visual treatment",
+    "content.zip text files for copy"
+  ],
+  "required_stack": {
+    "preferred": [
+      "HTML5",
+      "CSS3",
+      "JavaScript ES2022"
+    ],
+    "allowed": [
+      "React",
+      "Next.js",
+      "TypeScript"
+    ],
+    "constraint": "Do not add a heavy UI component library that changes the visual language.",
+    "fonts": {
+      "primary": "Poppins",
+      "fallback": [
+        "Arial",
+        "sans-serif"
+      ],
+      "weights": [
+        400,
+        500,
+        600,
+        700,
+        800
+      ]
+    }
+  },
+  "design_tokens": {
+    "colours": {
+      "navy_900": "#061426",
+      "navy_800": "#0A1D31",
+      "gold_500": "#F5A800",
+      "gold_400": "#FFB51B",
+      "white": "#FFFFFF",
+      "off_white": "#F7F7F5",
+      "grey_700": "#3D4148",
+      "grey_500": "#73777F",
+      "grey_200": "#E7E7E4",
+      "urgent_red": "#D92D20"
+    },
+    "border_radius_px": {
+      "small": 4,
+      "medium": 8,
+      "large": 12
+    },
+    "shadow": "0 8px 24px rgba(6,20,38,0.12)",
+    "container": {
+      "max_width_px": 1280,
+      "desktop_padding_px": 32,
+      "tablet_padding_px": 24,
+      "mobile_padding_px": 16
+    },
+    "section_spacing_px": {
+      "desktop": 64,
+      "tablet": 48,
+      "mobile": 36
+    }
+  },
+  "layout": {
+    "type": "single-page responsive website",
+    "desktop_grid": 12,
+    "header": {
+      "position": "sticky",
+      "top_px": 0,
+      "z_index": 1000,
+      "height_px": 72,
+      "background": "#061426",
+      "logo_alignment": "left",
+      "navigation_alignment": "right",
+      "mobile": "hamburger menu"
+    },
+    "hero": {
+      "desktop_min_height_px": 500,
+      "content_width_percent": 46,
+      "image_treatment": "full-bleed background image with a left-to-right dark gradient overlay",
+      "cta_layout": "two inline buttons on desktop, stacked or wrapped on small screens",
+      "testimonial_card": "bottom-left within hero content area"
+    },
+    "section_order": [
+      "header/hero",
+      "customer-stories",
+      "our-work",
+      "services",
+      "why-jay",
+      "project-spotlight",
+      "recommendations",
+      "process-and-form-with-urgent-assistance",
+      "footer"
+    ],
+    "desktop_lower_area": {
+      "main_column_percent": 76,
+      "urgent_card_percent": 24,
+      "urgent_card_behaviour": "sticky within its grid column only when viewport height permits"
+    }
+  },
+  "sections": [
+    {
+      "id": "home",
+      "reference": "Header.png",
+      "content_file": "01_header_hero.txt"
+    },
+    {
+      "id": "customer-stories",
+      "reference": "CustomerSays.png",
+      "content_file": "02_customer_says.txt",
+      "desktop_columns": 3
+    },
+    {
+      "id": "our-work",
+      "reference": "OurWork.png",
+      "content_file": "03_our_work.txt",
+      "desktop_columns": 6
+    },
+    {
+      "id": "services",
+      "reference": "CompleteBuildingServ.png",
+      "content_file": "04_services.txt",
+      "desktop_columns": 5,
+      "second_row_columns": 4,
+      "guidance_card": "right side"
+    },
+    {
+      "id": "why-jay",
+      "reference": "WhyJAY.png",
+      "content_file": "05_why_jay.txt",
+      "theme": "dark",
+      "desktop_columns": 4
+    },
+    {
+      "id": "project-spotlight",
+      "reference": "OutDatedProp.png",
+      "content_file": "06_project_spotlight.txt",
+      "layout": "image gallery left, copy centre, testimonial right"
+    },
+    {
+      "id": "recommendations",
+      "reference": "Recommendations.png",
+      "content_file": "07_recommendations.txt",
+      "desktop_columns": 4
+    },
+    {
+      "id": "process",
+      "reference": "Process.png",
+      "content_file": "08_process.txt",
+      "desktop_columns": 4
+    },
+    {
+      "id": "contact",
+      "reference": "TellUsProj.png",
+      "content_file": "09_project_form.txt"
+    },
+    {
+      "id": "urgent-assistance",
+      "reference": "UrgentAssis.png",
+      "content_file": "10_urgent_assistance.txt"
+    },
+    {
+      "id": "footer",
+      "content_file": "11_footer.txt",
+      "theme": "dark"
+    }
+  ],
+  "responsive_breakpoints": {
+    "mobile_max_px": 575,
+    "small_tablet_min_px": 576,
+    "tablet_min_px": 768,
+    "desktop_min_px": 992,
+    "large_desktop_min_px": 1200,
+    "rules": {
+      "mobile": [
+        "All grids become one column.",
+        "Hero text remains left aligned.",
+        "Navigation becomes an accessible drawer.",
+        "Urgent assistance is not fixed or overlaid.",
+        "Buttons use minimum 44px touch height.",
+        "Project cards may use a horizontal snap carousel only if all content remains keyboard accessible."
+      ],
+      "tablet": [
+        "Customer stories use two columns with the final card spanning or centred.",
+        "Project gallery uses two or three columns.",
+        "Service cards use two columns.",
+        "Lower area becomes one column before 992px."
+      ],
+      "desktop": [
+        "Match the prototype's compact vertical rhythm.",
+        "Keep all main sections within the shared max-width container except full-width dark bands."
+      ]
+    }
+  },
+  "interaction": {
+    "smooth_scroll": true,
+    "navigation": "anchor links to section IDs",
+    "video_cards": "open accessible modal or embedded player; thumbnails remain images until activated",
+    "project_cards": "optional lightbox; before-and-after divider is visual only unless implemented as an accessible slider",
+    "form": {
+      "client_validation": true,
+      "server_validation_required": true,
+      "accepted_uploads": [
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".webp",
+        ".mp4",
+        ".mov"
+      ],
+      "max_files": 8,
+      "max_file_size_mb": 20,
+      "success_state": "inline confirmation with no full page reload where practical",
+      "spam_protection": "honeypot plus server-side rate limiting"
+    }
+  },
+  "accessibility": {
+    "target": "WCAG 2.2 AA",
+    "requirements": [
+      "Semantic heading hierarchy with one H1.",
+      "Keyboard-operable navigation, modal and form.",
+      "Visible focus states.",
+      "Alt text for meaningful images and empty alt for decorative images.",
+      "Form labels must not rely on placeholders.",
+      "Colour contrast of at least 4.5:1 for normal text.",
+      "Respect prefers-reduced-motion.",
+      "Video controls and captions where videos are published."
+    ]
+  },
+  "performance": {
+    "targets": {
+      "lighthouse_performance": 90,
+      "lighthouse_accessibility": 95,
+      "lcp_seconds": 2.5,
+      "cls": 0.1
+    },
+    "image_rules": [
+      "Convert production photography to AVIF or WebP.",
+      "Keep supplied PNGs as visual references, not necessarily final production assets.",
+      "Use responsive srcset and explicit width/height.",
+      "Lazy-load all below-the-fold media.",
+      "Do not lazy-load the hero's primary image."
+    ]
+  },
+  "seo": {
+    "title": "JAY Builders | Renovations, Extensions & Property Services",
+    "meta_description": "Trusted building, renovation, extension, maintenance and emergency property services in Reading and surrounding areas.",
+    "structured_data": [
+      "LocalBusiness",
+      "Service",
+      "Review"
+    ],
+    "open_graph": true
+  },
+  "content_constraints": {
+    "must_use_content_archive": true,
+    "do_not_add": [
+      "blog",
+      "pricing tables",
+      "team biographies",
+      "award counters",
+      "fake project statistics",
+      "newsletter",
+      "FAQ",
+      "unapproved service categories",
+      "extra homepage sections"
+    ],
+    "claims_note": "Replace placeholder phone, company number, review-platform claims and testimonials with verified business details before production."
+  },
+  "asset_dimensions": {
+    "JAY_Builders.png": {
+      "width": 945,
+      "height": 1665,
+      "format": "PNG"
+    },
+    "Header.png": {
+      "width": 813,
+      "height": 271,
+      "format": "PNG"
+    },
+    "CustomerSays.png": {
+      "width": 811,
+      "height": 169,
+      "format": "PNG"
+    },
+    "OurWork.png": {
+      "width": 811,
+      "height": 145,
+      "format": "PNG"
+    },
+    "CompleteBuildingServ.png": {
+      "width": 808,
+      "height": 170,
+      "format": "PNG"
+    },
+    "WhyJAY.png": {
+      "width": 808,
+      "height": 84,
+      "format": "PNG"
+    },
+    "OutDatedProp.png": {
+      "width": 814,
+      "height": 182,
+      "format": "PNG"
+    },
+    "Recommendations.png": {
+      "width": 590,
+      "height": 129,
+      "format": "PNG"
+    },
+    "Process.png": {
+      "width": 315,
+      "height": 155,
+      "format": "PNG"
+    },
+    "TellUsProj.png": {
+      "width": 289,
+      "height": 172,
+      "format": "PNG"
+    },
+    "UrgentAssis.png": {
+      "width": 183,
+      "height": 294,
+      "format": "PNG"
+    }
+  },
+  "acceptance_criteria": [
+    "Overall section order and proportions visibly match JAY_Builders.png.",
+    "No unapproved content or sections remain in the UI.",
+    "Every section uses its matching text file and reference image.",
+    "Desktop, tablet and mobile layouts have no overlap or horizontal scrolling.",
+    "Urgent assistance card does not obscure form or footer.",
+    "All CTA buttons have working targets.",
+    "Form validation and file restrictions work.",
+    "Build passes accessibility and performance checks.",
+    "Visual regression screenshots are produced at 375px, 768px, 1440px widths."
+  ],
+  "suggested_file_structure": {
+    "public/assets/reference": "unzip image-assets.zip here during development",
+    "src/content": "unzip content.zip or convert each file into data constants",
+    "src/components": [
+      "Header",
+      "Hero",
+      "CustomerStories",
+      "ProjectGallery",
+      "ServicesGrid",
+      "WhyJay",
+      "ProjectSpotlight",
+      "Recommendations",
+      "Process",
+      "ProjectForm",
+      "UrgentAssistance",
+      "Footer"
+    ]
+  }
+}

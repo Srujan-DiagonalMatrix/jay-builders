@@ -1,0 +1,43 @@
+SECTION ID: contact
+REFERENCE IMAGE: TellUsProj.png
+
+HEADING
+TELL US ABOUT YOUR PROJECT
+
+INTRO
+Share a few details and a member of the JAY Builders team will contact you.
+
+FIELDS
+Full Name | required | text
+Email Address | required | email
+Phone Number | required | tel
+Property Postcode | required | text
+Type of Work Required | required | select
+Estimated Start Date | optional | select
+Approximate Budget | optional | select
+Preferred Contact Method | required | select
+Project Description | required | textarea
+Upload Photos / Videos | optional | file | multiple
+
+TYPE OF WORK OPTIONS
+Complete Renovation
+Building Extension
+Kitchen or Bathroom
+Interior Finishing
+Exterior Works
+Electrical or Plumbing
+Maintenance or Repairs
+Emergency Call-out
+Structural Work
+Other
+
+PREFERRED CONTACT OPTIONS
+Phone
+Email
+WhatsApp
+
+CTA
+Request My Free Consultation
+
+PRIVACY NOTE
+Your details will only be used to discuss your enquiry.

@@ -1,0 +1,38 @@
+SECTION ID: our-work
+REFERENCE IMAGE: OurWork.png
+
+HEADING
+OUR WORK SPEAKS FOR ITSELF
+
+PROJECT 1
+Title: Full Property Renovation
+Location: Bracknell
+Duration: 8 Weeks
+
+PROJECT 2
+Title: Rear Extension
+Location: Windsor
+Duration: 6 Weeks
+
+PROJECT 3
+Title: Kitchen Transformation
+Location: Uxbridge
+Duration: 3 Weeks
+
+PROJECT 4
+Title: Bathroom Renovation
+Location: Slough
+Duration: 2 Weeks
+
+PROJECT 5
+Title: Driveway & Landscaping
+Location: Ascot
+Duration: 2 Weeks
+
+PROJECT 6
+Title: Roofing & Exterior
+Location: High Wycombe
+Duration: 1 Week
+
+CTA
+View More Projects
