@@ -8,7 +8,7 @@ const requiredTokens = ['--color-navy-900', '--color-gold-500', '--radius-medium
 
 describe('application foundation', () => {
   it('publishes the required design token groups', () => {
-    const tokens = readFileSync(new URL('../styles/tokens.css', import.meta.url), 'utf8');
+    const tokens = readFileSync('src/styles/tokens.css', 'utf8');
     requiredTokens.forEach((token) => expect(tokens).toContain(token));
   });
 
@@ -27,7 +27,7 @@ describe('application foundation', () => {
   });
 
   it('enables smooth anchor scrolling and removes motion for reduced-motion users', () => {
-    const styles = readFileSync(new URL('../styles/global.css', import.meta.url), 'utf8');
+    const styles = readFileSync('src/styles/global.css', 'utf8');
     expect(styles).toMatch(/html\s*\{[^}]*scroll-behavior:\s*smooth/);
     expect(styles).toMatch(/prefers-reduced-motion:\s*reduce/);
     expect(styles).toMatch(/scroll-behavior:\s*auto/);

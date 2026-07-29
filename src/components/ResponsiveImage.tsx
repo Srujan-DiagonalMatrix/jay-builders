@@ -34,8 +34,8 @@ export function ResponsiveImage({
 
   return (
     <picture className={className}>
-      <source type="image/webp" srcSet={sourceSet('webp')} sizes={sizes} />
       <source type="image/avif" srcSet={sourceSet('avif')} sizes={sizes} />
+      <source type="image/webp" srcSet={sourceSet('webp')} sizes={sizes} />
       <img
         {...props}
         src={fallback.src}

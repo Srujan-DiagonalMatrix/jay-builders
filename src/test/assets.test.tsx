@@ -16,7 +16,7 @@ describe('production asset contract', () => {
       expect(Number.isFinite(asset.focalPoint.y)).toBe(true);
       expect(asset.width).toBeGreaterThan(0);
       expect(asset.height).toBeGreaterThan(0);
-      expect(asset.classification === 'decorative' ? asset.alt : asset.alt.length > 0).toBeTruthy();
+      expect(asset.classification === 'decorative' ? asset.alt === '' : asset.alt.length > 0).toBe(true);
       expect(new Set(asset.variants.map(variant => variant.format))).toEqual(new Set(['avif', 'webp']));
       expect(asset.variants).toHaveLength(6);
     }
