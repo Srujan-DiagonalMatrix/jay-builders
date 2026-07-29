@@ -102,11 +102,38 @@ function heroScene(string $path, int $width, int $height, string $reference): vo
   imagedestroy($source);
 }
 
+function masterScene(string $path, int $width, int $height, string $masterPath): void {
+  $source = imagecreatefrompng($masterPath);
+  $output = imagecreatetruecolor($width, $height);
+  imagecopyresampled($output, $source, 0, 0, 0, 0, $width, $height, imagesx($source), imagesy($source));
+  imagepng($output, $path, 7);
+  imagedestroy($output);
+  imagedestroy($source);
+}
+
+function materializeBase64Png(string $encodedPath, string $pngPath): void {
+  $encoded = file_get_contents($encodedPath);
+  $bytes = $encoded === false ? false : base64_decode($encoded, true);
+  if ($bytes === false || @getimagesizefromstring($bytes) === false) {
+    throw new RuntimeException("Invalid encoded PNG master: $encodedPath");
+  }
+  file_put_contents($pngPath, $bytes);
+}
+
 foreach ($assets as [$name,$ratio,$kind,$seed]) {
   $w = 1600; $h = (int)round($w/$ratio);
   $headerReference = "$root/requirements/image-assets/section-references/Header.png";
+  $customerStoryMaster = "$masterDir/CustomerSays-story-02.png";
+  if ($name === 'CustomerSays-story-02') {
+    materializeBase64Png(
+      "$root/assets-source/customer-stories/CustomerSays-story-02.png.base64",
+      $customerStoryMaster,
+    );
+  }
   if ($name === 'Header-hero') {
     heroScene("$masterDir/$name.png", $w, $h, $headerReference);
+  } elseif ($name === 'CustomerSays-story-02') {
+    masterScene("$masterDir/$name.png", $w, $h, $customerStoryMaster);
   } else {
     scene("$masterDir/$name.png", $w, $h, $kind, $seed);
   }
@@ -115,6 +142,8 @@ foreach ($assets as [$name,$ratio,$kind,$seed]) {
     $tmp = "$assetDir/$name-$vw.png";
     if ($name === 'Header-hero') {
       heroScene($tmp, $vw, $vh, $headerReference);
+    } elseif ($name === 'CustomerSays-story-02') {
+      masterScene($tmp, $vw, $vh, $customerStoryMaster);
     } else {
       scene($tmp, $vw, $vh, $kind, $seed);
     }

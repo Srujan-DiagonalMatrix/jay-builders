@@ -35,6 +35,19 @@ describe('production asset contract', () => {
     expect(readFileSync('.gitignore', 'utf8')).toContain('deliverables/*.zip');
   });
 
+  it('stores the story 02 master as reproducible text instead of a binary', () => {
+    const encoded = readFileSync(
+      'assets-source/customer-stories/CustomerSays-story-02.png.base64',
+      'utf8',
+    );
+    expect(encoded).toMatch(/^[A-Za-z0-9+/=\s]+$/);
+
+    const png = Buffer.from(encoded, 'base64');
+    expect(png.subarray(0, 8).toString('hex')).toBe('89504e470d0a1a0a');
+    expect(png.readUInt32BE(16)).toBe(1440);
+    expect(png.readUInt32BE(20)).toBe(810);
+  });
+
   it('gives the hero eager loading and high fetch priority with explicit dimensions', () => {
     render(<Hero/>);
     const hero = screen.getByAltText('Contemporary kitchen after a complete renovation');

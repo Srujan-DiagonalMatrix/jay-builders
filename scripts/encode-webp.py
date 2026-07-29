@@ -16,7 +16,8 @@ for path in glob.glob('public/assets/images/*.ppm'):
         raw = f.read()
     pixels = (ctypes.c_uint8 * len(raw)).from_buffer_copy(raw)
     output = ctypes.POINTER(ctypes.c_uint8)()
-    size = lib.WebPEncodeRGB(pixels, width, height, width * 3, 82.0, ctypes.byref(output))
+    quality = 76.0 if 'CustomerSays-story-02-' in path else 82.0
+    size = lib.WebPEncodeRGB(pixels, width, height, width * 3, quality, ctypes.byref(output))
     if not size:
         raise RuntimeError(f'WebP encoding failed for {path}')
     with open(path[:-4] + '.webp', 'wb') as f:
