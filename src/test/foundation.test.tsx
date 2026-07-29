@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { App } from '../App';
-import { formFields, sectionOrder, siteContent } from '../content/site';
+import { headerHeroContent, projectFormContent, sectionOrder } from '../content/site';
 
 const requiredTokens = ['--color-navy-900', '--color-gold-500', '--radius-medium', '--shadow-card', '--container-max', '--section-spacing', '--header-height', '--breakpoint-desktop'];
 
@@ -13,9 +13,9 @@ describe('application foundation', () => {
   });
 
   it('provides a valid typed content model', () => {
-    expect(siteContent.navigation.length).toBeGreaterThan(0);
-    expect(formFields.every(({ name, label }) => name.length > 0 && label.length > 0)).toBe(true);
-    expect(formFields.find(({ type }) => type === 'file')?.accept).toEqual(['.jpg', '.jpeg', '.png', '.webp', '.mp4', '.mov']);
+    expect(headerHeroContent.navigation.length).toBeGreaterThan(0);
+    expect(projectFormContent.fields.every(({ name, label }) => name.length > 0 && label.length > 0)).toBe(true);
+    expect(projectFormContent.fields.find(({ type }) => type === 'file')?.accept).toEqual(['.jpg', '.jpeg', '.png', '.webp', '.mp4', '.mov']);
   });
 
   it('renders every required section ID in the specified one-page order', () => {

@@ -1,2 +1,2 @@
-import { reasons } from '../content/site'; import { SectionHeading } from './shared';
-export function WhyJay(){return <section id="why-jay" className="section dark-band"><div className="container"><SectionHeading light>Why customers choose JAY Builders</SectionHeading><div className="why-grid">{reasons.map((r,i)=><article key={r[0]}><span>{String(i+1).padStart(2,'0')}</span><h3>{r[0]}</h3><p>{r[1]}</p></article>)}</div></div></section>}
+import { whyJayContent as content } from '../content/site'; import { SectionHeading } from './shared';
+export function WhyJay(){return <section id={content.sectionId} className="section dark-band"><div className="container"><SectionHeading light>{content.heading}</SectionHeading><div className="why-grid">{content.reasons.map((r,i)=><article key={r.title}><span>{String(i+1).padStart(2,'0')}</span><h3>{r.title}</h3><p>{r.description}</p></article>)}</div></div></section>}

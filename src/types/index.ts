@@ -1,1 +1,1 @@
-export type { FormField, NavigationItem, ProcessStep, Project, ResponsiveImage, Review, SectionId, Service, SiteContent, Story } from './content';
+export type { Cta, FormField, NavigationItem, PlaceholderBusinessData, ProcessStep, ProjectRecord, ReasonRecord, ReviewRecord, SectionId, ServiceRecord, StoryRecord, TestimonialClaim } from './content';
