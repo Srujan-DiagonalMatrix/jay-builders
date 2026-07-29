@@ -10,7 +10,6 @@ export const servicesContent = {
     { title: 'Electrical & Plumbing', description: 'Electrical installations, plumbing, heating and drainage.', icon: 'electrical-plumbing' },
     { title: 'Maintenance Services', description: 'Planned maintenance, repairs and landlord services.', icon: 'maintenance' },
     { title: 'Emergency Call-outs', description: 'Fast response for urgent building, plumbing and electrical issues.', icon: 'emergency-callout' },
-    { title: 'Structural Work', description: 'Foundations, RSJs, damp proofing and underpinning.', icon: 'structural' },
   ] satisfies ServiceRecord[],
   guidance: { heading: 'Not sure which service you need?', body: 'Tell us about your project and we’ll guide you.', cta: { label: 'Speak to JAY Builders', target: '#contact' } },
 } as const;
