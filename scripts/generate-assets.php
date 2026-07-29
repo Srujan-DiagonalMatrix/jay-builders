@@ -19,9 +19,7 @@ $assets = [
   ['OurWork-project-04-before', 4/3, 'bathroom', 17], ['OurWork-project-04-after', 4/3, 'bathroom', 18],
   ['OurWork-project-05-before', 4/3, 'exterior', 19], ['OurWork-project-05-after', 4/3, 'exterior', 20],
   ['OurWork-project-06-before', 4/3, 'roof', 21], ['OurWork-project-06-after', 4/3, 'roof', 22],
-  ['OutDatedProp-main', 4/3, 'interior', 31],
-  ['OutDatedProp-detail-01', 4/3, 'kitchen', 32],
-  ['OutDatedProp-detail-02', 4/3, 'exterior', 33],
+  ['OutDatedProp-project-spotlight', 407/91, 'reference', 31],
   ['UrgentAssis-background', 3/4, 'vehicle', 41],
 ];
 
@@ -102,11 +100,34 @@ function heroScene(string $path, int $width, int $height, string $reference): vo
   imagedestroy($source);
 }
 
+function referenceScene(string $path, int $width, int $height, string $reference): void {
+  $source = imagecreatefrompng($reference);
+  $output = imagecreatetruecolor($width, $height);
+  imagecopyresampled(
+    $output,
+    $source,
+    0,
+    0,
+    0,
+    0,
+    $width,
+    $height,
+    imagesx($source),
+    imagesy($source),
+  );
+  imagepng($output, $path, 7);
+  imagedestroy($output);
+  imagedestroy($source);
+}
+
 foreach ($assets as [$name,$ratio,$kind,$seed]) {
   $w = 1600; $h = (int)round($w/$ratio);
   $headerReference = "$root/requirements/image-assets/section-references/Header.png";
+  $spotlightReference = "$root/requirements/image-assets/section-references/OutDatedProp.png";
   if ($name === 'Header-hero') {
     heroScene("$masterDir/$name.png", $w, $h, $headerReference);
+  } elseif ($name === 'OutDatedProp-project-spotlight') {
+    referenceScene("$masterDir/$name.png", $w, $h, $spotlightReference);
   } else {
     scene("$masterDir/$name.png", $w, $h, $kind, $seed);
   }
@@ -115,6 +136,8 @@ foreach ($assets as [$name,$ratio,$kind,$seed]) {
     $tmp = "$assetDir/$name-$vw.png";
     if ($name === 'Header-hero') {
       heroScene($tmp, $vw, $vh, $headerReference);
+    } elseif ($name === 'OutDatedProp-project-spotlight') {
+      referenceScene($tmp, $vw, $vh, $spotlightReference);
     } else {
       scene($tmp, $vw, $vh, $kind, $seed);
     }
