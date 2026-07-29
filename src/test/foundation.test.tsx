@@ -25,4 +25,12 @@ describe('application foundation', () => {
     sectionOrder.forEach((id) => expect(document.getElementById(id)).toBeInTheDocument());
     expect(screen.getByRole('heading', { name: /see what our customers say/i })).toBeVisible();
   });
+
+  it('enables smooth anchor scrolling and removes motion for reduced-motion users', () => {
+    const styles = readFileSync(new URL('../styles/global.css', import.meta.url), 'utf8');
+    expect(styles).toMatch(/html\s*\{[^}]*scroll-behavior:\s*smooth/);
+    expect(styles).toMatch(/prefers-reduced-motion:\s*reduce/);
+    expect(styles).toMatch(/scroll-behavior:\s*auto/);
+    expect(styles).toMatch(/transition-duration:\s*0\.01ms/);
+  });
 });
