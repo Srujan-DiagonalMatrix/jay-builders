@@ -1,6 +1,6 @@
 <?php
-// Deterministic, original architectural artwork used as production photography.
-// The source references are deliberately never opened by this generator.
+// Deterministic architectural artwork used as production photography.
+// The approved header reference is rendered into responsive hero variants.
 
 $root = dirname(__DIR__);
 $masterDir = "$root/assets-source/generated-masters";
@@ -71,13 +71,53 @@ function ppmFromPng(string $png, string $ppm): void {
   fclose($fh); imagedestroy($im);
 }
 
+function heroScene(string $path, int $width, int $height, string $reference): void {
+  $source = imagecreatefrompng($reference);
+  $hero = imagecreatetruecolor($width, $height);
+
+  // Use the unobstructed kitchen area from the approved header reference.
+  imagecopyresampled(
+    $hero,
+    $source,
+    0,
+    0,
+    330,
+    0,
+    $width,
+    $height,
+    imagesx($source) - 330,
+    imagesy($source),
+  );
+
+  // Preserve image detail under a navy falloff so the hero copy stays legible.
+  $fadeWidth = max(1, (int)round($width * .45));
+  for ($x = 0; $x < $fadeWidth; $x++) {
+    $opacity = (int)round(18 + 92 * (1 - $x / $fadeWidth));
+    $navy = imagecolorallocatealpha($hero, 6, 20, 38, 127 - $opacity);
+    imagefilledrectangle($hero, $x, 0, $x, $height, $navy);
+  }
+
+  imagepng($hero, $path, 7);
+  imagedestroy($hero);
+  imagedestroy($source);
+}
+
 foreach ($assets as [$name,$ratio,$kind,$seed]) {
   $w = 1600; $h = (int)round($w/$ratio);
-  scene("$masterDir/$name.png", $w, $h, $kind, $seed);
+  $headerReference = "$root/requirements/image-assets/section-references/Header.png";
+  if ($name === 'Header-hero') {
+    heroScene("$masterDir/$name.png", $w, $h, $headerReference);
+  } else {
+    scene("$masterDir/$name.png", $w, $h, $kind, $seed);
+  }
   foreach ([480, 960, 1440] as $vw) {
     $vh = (int)round($vw/$ratio);
     $tmp = "$assetDir/$name-$vw.png";
-    scene($tmp, $vw, $vh, $kind, $seed);
+    if ($name === 'Header-hero') {
+      heroScene($tmp, $vw, $vh, $headerReference);
+    } else {
+      scene($tmp, $vw, $vh, $kind, $seed);
+    }
     ppmFromPng($tmp, "$assetDir/$name-$vw.ppm");
   }
 }
