@@ -16,7 +16,11 @@ php scripts/generate-assets.php
 # AVIF is encoded while the generated PNG renditions still exist. The WebP
 # encoder then consumes and removes the intermediate PNG/PPM renditions.
 for png in public/assets/images/*.png; do
-  avifenc --quiet --min 22 --max 32 "$png" "${png%.png}.avif"
+  if [[ "$png" == *CustomerSays-story-02-* ]]; then
+    avifenc --quiet --min 24 --max 34 "$png" "${png%.png}.avif"
+  else
+    avifenc --quiet --min 22 --max 32 "$png" "${png%.png}.avif"
+  fi
 done
 python scripts/encode-webp.py
 
