@@ -11,7 +11,7 @@ export const imageManifest:readonly ImageAsset[]=[
  asset('CustomerSays-story-02','CustomerSays','CustomerSays.png','Customer story video thumbnail','Completed rear kitchen extension','16:9'),
  asset('CustomerSays-story-03','CustomerSays','CustomerSays.png','Customer story video thumbnail','Completed modern bathroom renovation','16:9'),
  ...projectAlt.flatMap((alt,index)=>{const number=String(index+1).padStart(2,'0');return [asset(`OurWork-project-${number}-before`,'OurWork','OurWork.png','Before view for project comparison',`${alt} before work began`,'4:3'),asset(`OurWork-project-${number}-after`,'OurWork','OurWork.png','After view for project comparison',`${alt} after completion`,'4:3')]}),
- asset('OutDatedProp-project-spotlight','OutDatedProp','OutDatedProp.png','Project spotlight before-and-after composite','Before-and-after views of a renovated home exterior, kitchen and bathroom','407:91'),
+ asset('OutDatedProp-project-spotlight','OutDatedProp','OutDatedProp.png','Project spotlight renovation gallery','Four views of a completed open-plan kitchen, dining room and bathroom renovation','178:91'),
  asset('UrgentAssis-background','UrgentAssis','UrgentAssis.png','Decorative urgent-assistance vehicle treatment','','3:4',{x:50,y:68}),
 ] as const;
 export function getImageAsset(id:string):ImageAsset{const found=imageManifest.find(image=>image.id===id);if(!found)throw new Error(`Unknown image asset: ${id}`);return found}

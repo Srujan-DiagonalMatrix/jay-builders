@@ -19,7 +19,7 @@ $assets = [
   ['OurWork-project-04-before', 4/3, 'bathroom', 17], ['OurWork-project-04-after', 4/3, 'bathroom', 18],
   ['OurWork-project-05-before', 4/3, 'exterior', 19], ['OurWork-project-05-after', 4/3, 'exterior', 20],
   ['OurWork-project-06-before', 4/3, 'roof', 21], ['OurWork-project-06-after', 4/3, 'roof', 22],
-  ['OutDatedProp-project-spotlight', 407/91, 'reference', 31],
+  ['OutDatedProp-project-spotlight', 178/91, 'reference', 31],
   ['UrgentAssis-background', 3/4, 'vehicle', 41],
 ];
 
@@ -100,9 +100,12 @@ function heroScene(string $path, int $width, int $height, string $reference): vo
   imagedestroy($source);
 }
 
-function referenceScene(string $path, int $width, int $height, string $reference): void {
+function spotlightScene(string $path, int $width, int $height, string $reference): void {
   $source = imagecreatefrompng($reference);
   $output = imagecreatetruecolor($width, $height);
+  // The approved reference contains the complete section. Its left-hand panel is
+  // the supplied four-view project image, ending at 43.75% of the reference.
+  $sourceWidth = (int)round(imagesx($source) * .4375);
   imagecopyresampled(
     $output,
     $source,
@@ -112,7 +115,7 @@ function referenceScene(string $path, int $width, int $height, string $reference
     0,
     $width,
     $height,
-    imagesx($source),
+    $sourceWidth,
     imagesy($source),
   );
   imagepng($output, $path, 7);
@@ -127,7 +130,7 @@ foreach ($assets as [$name,$ratio,$kind,$seed]) {
   if ($name === 'Header-hero') {
     heroScene("$masterDir/$name.png", $w, $h, $headerReference);
   } elseif ($name === 'OutDatedProp-project-spotlight') {
-    referenceScene("$masterDir/$name.png", $w, $h, $spotlightReference);
+    spotlightScene("$masterDir/$name.png", $w, $h, $spotlightReference);
   } else {
     scene("$masterDir/$name.png", $w, $h, $kind, $seed);
   }
@@ -137,7 +140,7 @@ foreach ($assets as [$name,$ratio,$kind,$seed]) {
     if ($name === 'Header-hero') {
       heroScene($tmp, $vw, $vh, $headerReference);
     } elseif ($name === 'OutDatedProp-project-spotlight') {
-      referenceScene($tmp, $vw, $vh, $spotlightReference);
+      spotlightScene($tmp, $vw, $vh, $spotlightReference);
     } else {
       scene($tmp, $vw, $vh, $kind, $seed);
     }

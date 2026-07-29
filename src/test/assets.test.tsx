@@ -74,14 +74,16 @@ describe('production asset contract', () => {
     expect(images).toHaveLength(1);
     expect(images[0]).toHaveAttribute(
       'alt',
-      'Before-and-after views of a renovated home exterior, kitchen and bathroom',
+      'Four views of a completed open-plan kitchen, dining room and bathroom renovation',
     );
     expect(images[0]).toHaveAttribute(
       'src',
       '/assets/images/OutDatedProp-project-spotlight-1440.webp',
     );
     expect(images[0]).toHaveAttribute('width', '1440');
-    expect(images[0]).toHaveAttribute('height', '322');
+    expect(images[0]).toHaveAttribute('height', '736');
     expect(document.querySelectorAll('.spotlight-gallery')).toHaveLength(1);
+    expect(document.querySelector('.spotlight-grid')?.firstElementChild).toHaveClass('spotlight-gallery');
+    expect(document.querySelector('.spotlight-quote')).toContainElement(screen.getByRole('link'));
   });
 });
