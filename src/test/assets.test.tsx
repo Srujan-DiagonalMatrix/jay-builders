@@ -131,6 +131,9 @@ describe('production asset contract', () => {
   it('renders the supplied Roofing & Exterior thumbnail without a binary-file dependency', () => {
     render(<ProjectGallery/>);
     const thumbnail = screen.getByAltText('Roofing and exterior renovation before and after');
+  it('renders the supplied Rear Extension thumbnail without a binary-file dependency', () => {
+    render(<ProjectGallery/>);
+    const thumbnail = screen.getByAltText('Rear extension before and after');
     const source = thumbnail.getAttribute('src') ?? '';
     const decoded = Buffer.from(source.split(',')[1], 'base64');
 
@@ -139,6 +142,9 @@ describe('production asset contract', () => {
     expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([1536, 1024]);
     expect(thumbnail).toHaveAttribute('width', '1536');
     expect(thumbnail).toHaveAttribute('height', '1024');
+    expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([1573, 1000]);
+    expect(thumbnail).toHaveAttribute('width', '1573');
+    expect(thumbnail).toHaveAttribute('height', '1000');
     expect(thumbnail).toHaveAttribute('loading', 'lazy');
   });
 
