@@ -3,7 +3,7 @@ export type SectionId = 'home' | 'customer-stories' | 'our-work' | 'services' | 
 export interface NavigationItem { label: string; target: `#${SectionId}`; }
 export interface Cta { label: string; target: `#${SectionId}` | `tel:${string}`; }
 export interface TestimonialClaim { quote: string; attribution: string; verification: 'unverified'; }
-export interface StoryRecord { title: string; location: string; durationLabel: string; }
+export interface StoryRecord { title: string; location: string; durationLabel: string; youtubeVideoId: string; }
 export interface ProjectRecord { title: string; location: string; duration: string; }
 export interface ServiceRecord { title: string; description: string; icon: string; }
 export interface ReasonRecord { title: string; description: string; }
