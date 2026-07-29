@@ -18,6 +18,23 @@ export function ResponsiveImage({
   className,
   ...props
 }: Props) {
+  if (asset.inlineSrc) {
+    return (
+      <picture className={className}>
+        <img
+          {...props}
+          src={asset.inlineSrc}
+          width={asset.width}
+          height={asset.height}
+          alt={asset.alt}
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : 'auto'}
+          decoding={priority ? 'sync' : 'async'}
+        />
+      </picture>
+    );
+  }
+
   const sourceSet = (format: 'avif' | 'webp') =>
     asset.variants
       .filter((variant) => variant.format === format)

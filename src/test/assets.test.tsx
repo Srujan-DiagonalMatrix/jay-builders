@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { Hero } from '../components/Hero';
 import { CustomerStories } from '../components/CustomerStories';
+import { UrgentAssistance } from '../components/UrgentAssistance';
 import { imageManifest } from '../content/image-manifest';
 
 describe('production asset contract', () => {
@@ -52,6 +53,20 @@ describe('production asset contract', () => {
     expect(thumbnail.getAttribute('src')).toMatch(/^data:image\/png;base64,/);
     expect(thumbnail).toHaveAttribute('width', '1672');
     expect(thumbnail).toHaveAttribute('height', '941');
+  });
+
+  it('renders the supplied urgent-assistance image without a generated-file dependency', () => {
+    const { container } = render(<UrgentAssistance/>);
+    const image = container.querySelector('.urgent-media img');
+    const source = image?.getAttribute('src') ?? '';
+    const decoded = Buffer.from(source.split(',')[1], 'base64');
+
+    expect(source).toMatch(/^data:image\/png;base64,/);
+    expect(decoded.subarray(0, 8)).toEqual(
+      Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
+    );
+    expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([183, 109]);
+    expect(image).toHaveAttribute('loading', 'lazy');
   });
 
   it('lazy-loads below-the-fold photography', () => {
