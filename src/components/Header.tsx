@@ -39,7 +39,7 @@ export function Header() {
   }, [open]);
 
   return <header className="site-header"><div className="container header-inner">
-    <a className="brand" href="#home" aria-label="JAY Builders home"><span>JAY</span> BUILDERS</a>
+    <a className="brand" href="#home" aria-label="JAY Builders home"><img src="/assets/images/JayLogo.png" alt="" /></a>
     <button ref={toggleRef} className="menu-button" type="button" aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} aria-controls="site-navigation" onClick={() => open ? closeDrawer() : setOpen(true)}><i/><i/><i/></button>
     {open && <button className="drawer-backdrop" type="button" aria-label="Close navigation menu" onClick={() => closeDrawer(true)}/>}
     <nav ref={navRef} id="site-navigation" aria-label="Primary navigation" className={open ? 'nav-open' : ''}>{headerHeroContent.navigation.map(n => <a key={n.target} href={n.target} onClick={() => closeDrawer()}>{n.label}</a>)}<a className="button button--gold nav-cta" href={headerHeroContent.primaryCta.target} onClick={() => closeDrawer()}>{headerHeroContent.primaryCta.label}</a></nav>

@@ -36,6 +36,12 @@ describe('production asset contract', () => {
     expect(readFileSync('.gitignore', 'utf8')).toContain('deliverables/*.zip');
   });
 
+  it('ships the JAY Builders logo as a public PNG asset', () => {
+    const encodedLogo = readFileSync('requirements/image-assets/JayLogo.png.base64', 'utf8');
+    const logo = Buffer.from(encodedLogo.replace(/\s/g, ''), 'base64');
+    expect(logo.subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+  });
+
   it('gives the hero eager loading and high fetch priority with explicit dimensions', () => {
     render(<Hero/>);
     const hero = screen.getByAltText('Contemporary kitchen after a complete renovation');
