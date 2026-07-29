@@ -5,16 +5,8 @@
 $root = dirname(__DIR__);
 $masterDir = "$root/assets-source/generated-masters";
 $assetDir = "$root/public/assets/images";
-$thumbnailDir = "$root/assets-source/youtube-thumbnails";
 @mkdir($masterDir, 0777, true);
 @mkdir($assetDir, 0777, true);
-@mkdir($thumbnailDir, 0777, true);
-
-$youtubeThumbnails = [
-  'CustomerSays-story-01' => 'pU5kvweq-EE',
-  'CustomerSays-story-02' => 'Jw7s42Op2ao',
-  'CustomerSays-story-03' => 'tOwjEOt1zYU',
-];
 
 $assets = [
   ['Header-hero', 16/9, 'kitchen', 1],
@@ -79,51 +71,6 @@ function ppmFromPng(string $png, string $ppm): void {
   fclose($fh); imagedestroy($im);
 }
 
-/** Download once, preferring a genuine 16:9 max-resolution thumbnail. */
-function youtubeThumbnail(string $directory, string $name, string $videoId): string {
-  $cached = "$directory/$name.jpg";
-  if (is_file($cached) && filesize($cached) > 0) return $cached;
-
-  $context = stream_context_create(['http' => [
-    'header' => "User-Agent: Jay-Builders-Asset-Pipeline/1.0\r\n",
-    'timeout' => 20,
-  ]]);
-  foreach (['maxresdefault', 'hqdefault'] as $quality) {
-    $url = "https://i.ytimg.com/vi/$videoId/$quality.jpg";
-    $bytes = @file_get_contents($url, false, $context);
-    if ($bytes === false) continue;
-    $info = @getimagesizefromstring($bytes);
-    // YouTube can return a small placeholder for an unavailable maxres image.
-    $isUsableMaxres = $quality === 'maxresdefault'
-      && $info !== false
-      && $info[0] >= 640
-      && abs($info[0] / $info[1] - 16 / 9) <= .02;
-    // hqdefault is normally 4:3, so coverJpeg removes its letterbox area.
-    $isUsableFallback = $quality === 'hqdefault' && $info !== false && $info[0] >= 480;
-    if (!$isUsableMaxres && !$isUsableFallback) continue;
-    file_put_contents($cached, $bytes);
-    return $cached;
-  }
-  throw new RuntimeException("Unable to download a 16:9 YouTube thumbnail for $videoId");
-}
-
-/** Centre-crop to the requested ratio and resample without distorting the source. */
-function coverJpeg(string $path, int $width, int $height, string $sourcePath): void {
-  $source = imagecreatefromjpeg($sourcePath);
-  $sourceWidth = imagesx($source); $sourceHeight = imagesy($source);
-  $targetRatio = $width / $height; $sourceRatio = $sourceWidth / $sourceHeight;
-  if ($sourceRatio > $targetRatio) {
-    $cropHeight = $sourceHeight; $cropWidth = (int)round($cropHeight * $targetRatio);
-    $sourceX = (int)round(($sourceWidth - $cropWidth) / 2); $sourceY = 0;
-  } else {
-    $cropWidth = $sourceWidth; $cropHeight = (int)round($cropWidth / $targetRatio);
-    $sourceX = 0; $sourceY = (int)round(($sourceHeight - $cropHeight) / 2);
-  }
-  $output = imagecreatetruecolor($width, $height);
-  imagecopyresampled($output, $source, 0, 0, $sourceX, $sourceY, $width, $height, $cropWidth, $cropHeight);
-  imagepng($output, $path, 7); imagedestroy($output); imagedestroy($source);
-}
-
 function heroScene(string $path, int $width, int $height, string $reference): void {
   $source = imagecreatefrompng($reference);
   $hero = imagecreatetruecolor($width, $height);
@@ -158,13 +105,8 @@ function heroScene(string $path, int $width, int $height, string $reference): vo
 foreach ($assets as [$name,$ratio,$kind,$seed]) {
   $w = 1600; $h = (int)round($w/$ratio);
   $headerReference = "$root/requirements/image-assets/section-references/Header.png";
-  $youtubeSource = isset($youtubeThumbnails[$name])
-    ? youtubeThumbnail($thumbnailDir, $name, $youtubeThumbnails[$name])
-    : null;
   if ($name === 'Header-hero') {
     heroScene("$masterDir/$name.png", $w, $h, $headerReference);
-  } elseif ($youtubeSource !== null) {
-    coverJpeg("$masterDir/$name.png", $w, $h, $youtubeSource);
   } else {
     scene("$masterDir/$name.png", $w, $h, $kind, $seed);
   }
@@ -173,8 +115,6 @@ foreach ($assets as [$name,$ratio,$kind,$seed]) {
     $tmp = "$assetDir/$name-$vw.png";
     if ($name === 'Header-hero') {
       heroScene($tmp, $vw, $vh, $headerReference);
-    } elseif ($youtubeSource !== null) {
-      coverJpeg($tmp, $vw, $vh, $youtubeSource);
     } else {
       scene($tmp, $vw, $vh, $kind, $seed);
     }

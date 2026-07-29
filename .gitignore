@@ -8,6 +8,5 @@ coverage/
 .DS_Store
 # Generated binary asset outputs (create with npm run assets:build)
 assets-source/generated-masters/
-assets-source/youtube-thumbnails/
 public/assets/images/
 deliverables/*.zip
