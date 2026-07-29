@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "assets:build": "bash scripts/build-assets.sh",
+    "deliverables:build": "bash scripts/package-deliverables.sh",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",

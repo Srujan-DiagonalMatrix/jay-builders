@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "content": [
+    {
+      "approvedSource": "00_content_manifest.txt",
+      "structuredEquivalent": "src/content/site.ts"
+    },
+    {
+      "approvedSource": "01_header_hero.txt",
+      "structuredEquivalent": "src/content/01-header-hero.ts"
+    },
+    {
+      "approvedSource": "02_customer_says.txt",
+      "structuredEquivalent": "src/content/02-customer-says.ts"
+    },
+    {
+      "approvedSource": "03_our_work.txt",
+      "structuredEquivalent": "src/content/03-our-work.ts"
+    },
+    {
+      "approvedSource": "04_services.txt",
+      "structuredEquivalent": "src/content/04-services.ts"
+    },
+    {
+      "approvedSource": "05_why_jay.txt",
+      "structuredEquivalent": "src/content/05-why-jay.ts"
+    },
+    {
+      "approvedSource": "06_project_spotlight.txt",
+      "structuredEquivalent": "src/content/06-project-spotlight.ts"
+    },
+    {
+      "approvedSource": "07_recommendations.txt",
+      "structuredEquivalent": "src/content/07-recommendations.ts"
+    },
+    {
+      "approvedSource": "08_process.txt",
+      "structuredEquivalent": "src/content/08-process.ts"
+    },
+    {
+      "approvedSource": "09_project_form.txt",
+      "structuredEquivalent": "src/content/09-project-form.ts"
+    },
+    {
+      "approvedSource": "10_urgent_assistance.txt",
+      "structuredEquivalent": "src/content/10-urgent-assistance.ts"
+    },
+    {
+      "approvedSource": "11_footer.txt",
+      "structuredEquivalent": "src/content/11-footer.ts"
+    }
+  ]
+}
