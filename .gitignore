@@ -6,3 +6,7 @@ coverage/
 .env.*
 !.env.example
 .DS_Store
+# Generated binary asset outputs (create with npm run assets:build)
+assets-source/generated-masters/
+public/assets/images/
+deliverables/*.zip

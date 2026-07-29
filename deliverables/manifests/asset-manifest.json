@@ -1,0 +1,282 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "productionBase": "Header-hero",
+      "sourceMaster": "assets-source/generated-masters/Header-hero.png",
+      "referenceSection": "Header.png",
+      "variants": [
+        "public/assets/images/Header-hero-480.webp",
+        "public/assets/images/Header-hero-960.webp",
+        "public/assets/images/Header-hero-1440.webp",
+        "public/assets/images/Header-hero-480.avif",
+        "public/assets/images/Header-hero-960.avif",
+        "public/assets/images/Header-hero-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "CustomerSays-story-01",
+      "sourceMaster": "assets-source/generated-masters/CustomerSays-story-01.png",
+      "referenceSection": "CustomerSays.png",
+      "variants": [
+        "public/assets/images/CustomerSays-story-01-480.webp",
+        "public/assets/images/CustomerSays-story-01-960.webp",
+        "public/assets/images/CustomerSays-story-01-1440.webp",
+        "public/assets/images/CustomerSays-story-01-480.avif",
+        "public/assets/images/CustomerSays-story-01-960.avif",
+        "public/assets/images/CustomerSays-story-01-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "CustomerSays-story-02",
+      "sourceMaster": "assets-source/generated-masters/CustomerSays-story-02.png",
+      "referenceSection": "CustomerSays.png",
+      "variants": [
+        "public/assets/images/CustomerSays-story-02-480.webp",
+        "public/assets/images/CustomerSays-story-02-960.webp",
+        "public/assets/images/CustomerSays-story-02-1440.webp",
+        "public/assets/images/CustomerSays-story-02-480.avif",
+        "public/assets/images/CustomerSays-story-02-960.avif",
+        "public/assets/images/CustomerSays-story-02-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "CustomerSays-story-03",
+      "sourceMaster": "assets-source/generated-masters/CustomerSays-story-03.png",
+      "referenceSection": "CustomerSays.png",
+      "variants": [
+        "public/assets/images/CustomerSays-story-03-480.webp",
+        "public/assets/images/CustomerSays-story-03-960.webp",
+        "public/assets/images/CustomerSays-story-03-1440.webp",
+        "public/assets/images/CustomerSays-story-03-480.avif",
+        "public/assets/images/CustomerSays-story-03-960.avif",
+        "public/assets/images/CustomerSays-story-03-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-01-before",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-01-before.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-01-before-480.webp",
+        "public/assets/images/OurWork-project-01-before-960.webp",
+        "public/assets/images/OurWork-project-01-before-1440.webp",
+        "public/assets/images/OurWork-project-01-before-480.avif",
+        "public/assets/images/OurWork-project-01-before-960.avif",
+        "public/assets/images/OurWork-project-01-before-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-01-after",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-01-after.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-01-after-480.webp",
+        "public/assets/images/OurWork-project-01-after-960.webp",
+        "public/assets/images/OurWork-project-01-after-1440.webp",
+        "public/assets/images/OurWork-project-01-after-480.avif",
+        "public/assets/images/OurWork-project-01-after-960.avif",
+        "public/assets/images/OurWork-project-01-after-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-02-before",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-02-before.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-02-before-480.webp",
+        "public/assets/images/OurWork-project-02-before-960.webp",
+        "public/assets/images/OurWork-project-02-before-1440.webp",
+        "public/assets/images/OurWork-project-02-before-480.avif",
+        "public/assets/images/OurWork-project-02-before-960.avif",
+        "public/assets/images/OurWork-project-02-before-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-02-after",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-02-after.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-02-after-480.webp",
+        "public/assets/images/OurWork-project-02-after-960.webp",
+        "public/assets/images/OurWork-project-02-after-1440.webp",
+        "public/assets/images/OurWork-project-02-after-480.avif",
+        "public/assets/images/OurWork-project-02-after-960.avif",
+        "public/assets/images/OurWork-project-02-after-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-03-before",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-03-before.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-03-before-480.webp",
+        "public/assets/images/OurWork-project-03-before-960.webp",
+        "public/assets/images/OurWork-project-03-before-1440.webp",
+        "public/assets/images/OurWork-project-03-before-480.avif",
+        "public/assets/images/OurWork-project-03-before-960.avif",
+        "public/assets/images/OurWork-project-03-before-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-03-after",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-03-after.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-03-after-480.webp",
+        "public/assets/images/OurWork-project-03-after-960.webp",
+        "public/assets/images/OurWork-project-03-after-1440.webp",
+        "public/assets/images/OurWork-project-03-after-480.avif",
+        "public/assets/images/OurWork-project-03-after-960.avif",
+        "public/assets/images/OurWork-project-03-after-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-04-before",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-04-before.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-04-before-480.webp",
+        "public/assets/images/OurWork-project-04-before-960.webp",
+        "public/assets/images/OurWork-project-04-before-1440.webp",
+        "public/assets/images/OurWork-project-04-before-480.avif",
+        "public/assets/images/OurWork-project-04-before-960.avif",
+        "public/assets/images/OurWork-project-04-before-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-04-after",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-04-after.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-04-after-480.webp",
+        "public/assets/images/OurWork-project-04-after-960.webp",
+        "public/assets/images/OurWork-project-04-after-1440.webp",
+        "public/assets/images/OurWork-project-04-after-480.avif",
+        "public/assets/images/OurWork-project-04-after-960.avif",
+        "public/assets/images/OurWork-project-04-after-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-05-before",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-05-before.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-05-before-480.webp",
+        "public/assets/images/OurWork-project-05-before-960.webp",
+        "public/assets/images/OurWork-project-05-before-1440.webp",
+        "public/assets/images/OurWork-project-05-before-480.avif",
+        "public/assets/images/OurWork-project-05-before-960.avif",
+        "public/assets/images/OurWork-project-05-before-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-05-after",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-05-after.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-05-after-480.webp",
+        "public/assets/images/OurWork-project-05-after-960.webp",
+        "public/assets/images/OurWork-project-05-after-1440.webp",
+        "public/assets/images/OurWork-project-05-after-480.avif",
+        "public/assets/images/OurWork-project-05-after-960.avif",
+        "public/assets/images/OurWork-project-05-after-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-06-before",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-06-before.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-06-before-480.webp",
+        "public/assets/images/OurWork-project-06-before-960.webp",
+        "public/assets/images/OurWork-project-06-before-1440.webp",
+        "public/assets/images/OurWork-project-06-before-480.avif",
+        "public/assets/images/OurWork-project-06-before-960.avif",
+        "public/assets/images/OurWork-project-06-before-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OurWork-project-06-after",
+      "sourceMaster": "assets-source/generated-masters/OurWork-project-06-after.png",
+      "referenceSection": "OurWork.png",
+      "variants": [
+        "public/assets/images/OurWork-project-06-after-480.webp",
+        "public/assets/images/OurWork-project-06-after-960.webp",
+        "public/assets/images/OurWork-project-06-after-1440.webp",
+        "public/assets/images/OurWork-project-06-after-480.avif",
+        "public/assets/images/OurWork-project-06-after-960.avif",
+        "public/assets/images/OurWork-project-06-after-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OutDatedProp-main",
+      "sourceMaster": "assets-source/generated-masters/OutDatedProp-main.png",
+      "referenceSection": "OutDatedProp.png",
+      "variants": [
+        "public/assets/images/OutDatedProp-main-480.webp",
+        "public/assets/images/OutDatedProp-main-960.webp",
+        "public/assets/images/OutDatedProp-main-1440.webp",
+        "public/assets/images/OutDatedProp-main-480.avif",
+        "public/assets/images/OutDatedProp-main-960.avif",
+        "public/assets/images/OutDatedProp-main-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OutDatedProp-detail-01",
+      "sourceMaster": "assets-source/generated-masters/OutDatedProp-detail-01.png",
+      "referenceSection": "OutDatedProp.png",
+      "variants": [
+        "public/assets/images/OutDatedProp-detail-01-480.webp",
+        "public/assets/images/OutDatedProp-detail-01-960.webp",
+        "public/assets/images/OutDatedProp-detail-01-1440.webp",
+        "public/assets/images/OutDatedProp-detail-01-480.avif",
+        "public/assets/images/OutDatedProp-detail-01-960.avif",
+        "public/assets/images/OutDatedProp-detail-01-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "OutDatedProp-detail-02",
+      "sourceMaster": "assets-source/generated-masters/OutDatedProp-detail-02.png",
+      "referenceSection": "OutDatedProp.png",
+      "variants": [
+        "public/assets/images/OutDatedProp-detail-02-480.webp",
+        "public/assets/images/OutDatedProp-detail-02-960.webp",
+        "public/assets/images/OutDatedProp-detail-02-1440.webp",
+        "public/assets/images/OutDatedProp-detail-02-480.avif",
+        "public/assets/images/OutDatedProp-detail-02-960.avif",
+        "public/assets/images/OutDatedProp-detail-02-1440.avif"
+      ]
+    },
+    {
+      "productionBase": "UrgentAssis-background",
+      "sourceMaster": "assets-source/generated-masters/UrgentAssis-background.png",
+      "referenceSection": "UrgentAssis.png",
+      "variants": [
+        "public/assets/images/UrgentAssis-background-480.webp",
+        "public/assets/images/UrgentAssis-background-960.webp",
+        "public/assets/images/UrgentAssis-background-1440.webp",
+        "public/assets/images/UrgentAssis-background-480.avif",
+        "public/assets/images/UrgentAssis-background-960.avif",
+        "public/assets/images/UrgentAssis-background-1440.avif"
+      ]
+    }
+  ],
+  "icons": [
+    "public/assets/icons/clear-quotation.svg",
+    "public/assets/icons/electrical-plumbing.svg",
+    "public/assets/icons/emergency-callout.svg",
+    "public/assets/icons/experienced-team.svg",
+    "public/assets/icons/extensions.svg",
+    "public/assets/icons/exterior-works.svg",
+    "public/assets/icons/fully-insured.svg",
+    "public/assets/icons/interior-finishing.svg",
+    "public/assets/icons/kitchen-bathroom.svg",
+    "public/assets/icons/maintenance.svg",
+    "public/assets/icons/on-time.svg",
+    "public/assets/icons/phone.svg",
+    "public/assets/icons/quality-workmanship.svg",
+    "public/assets/icons/renovations.svg",
+    "public/assets/icons/structural.svg"
+  ]
+}
