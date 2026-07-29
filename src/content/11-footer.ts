@@ -5,6 +5,7 @@ export const placeholderBusinessData = { phoneLabel: '07000 900 123', phoneHref:
 export const footerContent = {
   sectionId: 'footer',
   brand: 'JAY Builders',
+  logo: { src: '/assets/icons/jay-builders-logo.svg', width: 190, height: 48 },
   contactLabels: { phone: 'Phone', email: 'Email', serviceArea: 'Service Area' },
   columnHeadings: { contact: 'CONTACT', services: 'SERVICES', company: 'COMPANY', followUs: 'FOLLOW US' },
   services: ['Renovations', 'Extensions', 'Kitchens & Bathrooms', 'Interior Finishing', 'Exterior Works', 'Electrical & Plumbing', 'Maintenance', 'Emergency Call-outs', 'Structural Work'],

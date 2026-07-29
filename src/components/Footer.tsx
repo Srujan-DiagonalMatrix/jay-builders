@@ -10,7 +10,7 @@ export function Footer() {
   return <footer id={content.sectionId} className="site-footer">
     <div className="container footer-grid">
       <section className="footer-brand" aria-label="JAY Builders brand">
-        <a className="brand" href="#home">{content.brand}</a>
+        <a className="footer-logo" href="#home"><img src={content.logo.src} width={content.logo.width} height={content.logo.height} alt={content.brand} /></a>
       </section>
       <section className="footer-contact" aria-labelledby="footer-contact-heading">
         <h2 id="footer-contact-heading">{content.columnHeadings.contact}</h2>

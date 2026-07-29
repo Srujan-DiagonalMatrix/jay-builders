@@ -46,6 +46,7 @@ describe('approved content contract', () => {
   });
 
   it('models social destinations and legal company information from their canonical sources', () => {
+    expect(footerContent.logo.src).toBe('/assets/icons/jay-builders-logo.svg');
     footerContent.social.forEach(social => {
       expect(typeof social.label).toBe('string');
       expect(social.url).toMatch(/^https:\/\//);
