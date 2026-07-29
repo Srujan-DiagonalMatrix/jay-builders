@@ -46,6 +46,14 @@ describe('production asset contract', () => {
     expect(hero).toHaveAttribute('sizes', '100vw');
   });
 
+  it('renders the supplied Complete Home Renovation thumbnail without a network dependency', () => {
+    render(<CustomerStories/>);
+    const thumbnail = screen.getByAltText('Complete Home Renovation customer story');
+    expect(thumbnail.getAttribute('src')).toMatch(/^data:image\/png;base64,/);
+    expect(thumbnail).toHaveAttribute('width', '1672');
+    expect(thumbnail).toHaveAttribute('height', '941');
+  });
+
   it('lazy-loads below-the-fold photography', () => {
     render(<CustomerStories/>);
     for (const image of screen.getAllByRole('img')) expect(image).toHaveAttribute('loading', 'lazy');
