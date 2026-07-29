@@ -1,7 +1,9 @@
+import needHelpBase64 from '../../requirements/image-assets/NeedHelp.png.base64?raw';
+
 export type ImageSection = 'Header' | 'CustomerSays' | 'OurWork' | 'OutDatedProp' | 'UrgentAssis';
 export type ImageClassification = 'meaningful' | 'decorative';
 export interface ImageVariant { format: 'avif' | 'webp'; width: 480 | 960 | 1440; height: number; src: string; }
-export interface ImageAsset { id: string; section: ImageSection; reference: string; purpose: string; alt: string; classification: ImageClassification; sourceFilename: string; cropRatio: `${number}:${number}`; focalPoint: { x: number; y: number }; width: number; height: number; variants: ImageVariant[]; }
+export interface ImageAsset { id: string; section: ImageSection; reference: string; purpose: string; alt: string; classification: ImageClassification; sourceFilename: string; cropRatio: `${number}:${number}`; focalPoint: { x: number; y: number }; width: number; height: number; variants: ImageVariant[]; inlineSrc?: string; }
 const dimensions=(ratio:string,width:number)=>{const [x,y]=ratio.split(':').map(Number);return Math.round(width*y/x)};
 const asset=(id:string,section:ImageSection,reference:string,purpose:string,alt:string,ratio:`${number}:${number}`,focalPoint={x:50,y:50}):ImageAsset=>({id,section,reference,purpose,alt,classification:alt?'meaningful':'decorative',sourceFilename:`${id}.png`,cropRatio:ratio,focalPoint,width:1440,height:dimensions(ratio,1440),variants:(['webp','avif'] as const).flatMap(format=>([480,960,1440] as const).map(width=>({format,width,height:dimensions(ratio,width),src:`/assets/images/${id}-${width}.${format}`})))});
 const projectAlt=['Full property renovation interior','Rear home extension','Kitchen transformation','Bathroom renovation','Driveway and landscaping project','Roofing and exterior renovation'];
@@ -14,6 +16,6 @@ export const imageManifest:readonly ImageAsset[]=[
  asset('OutDatedProp-main','OutDatedProp','OutDatedProp.png','Project spotlight main gallery image','Modern family home following a complete renovation','4:3'),
  asset('OutDatedProp-detail-01','OutDatedProp','OutDatedProp.png','Project spotlight kitchen detail','New kitchen in the featured family home','4:3'),
  asset('OutDatedProp-detail-02','OutDatedProp','OutDatedProp.png','Project spotlight exterior detail','Exterior improvements to the featured family home','4:3'),
- asset('NeedHelp','UrgentAssis','NeedHelp.png','Decorative urgent-assistance vehicle treatment','','16:9',{x:50,y:68}),
+ {...asset('NeedHelp','UrgentAssis','NeedHelp.png','Decorative urgent-assistance vehicle treatment','','16:9',{x:50,y:68}),inlineSrc:`data:image/png;base64,${needHelpBase64.replace(/\s/g,'')}`},
 ] as const;
 export function getImageAsset(id:string):ImageAsset{const found=imageManifest.find(image=>image.id===id);if(!found)throw new Error(`Unknown image asset: ${id}`);return found}
