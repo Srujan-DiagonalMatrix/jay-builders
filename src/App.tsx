@@ -1,5 +1,2 @@
-import { sectionOrder } from './content/site';
-
-export function App() {
-  return <main>{sectionOrder.map((id) => <section className="section" id={id} key={id}><div className="container">{id === 'home' ? <h1>JAY Builders</h1> : <h2>{id.replaceAll('-', ' ')}</h2>}</div></section>)}</main>;
-}
+import { CustomerStories, Footer, Header, Hero, Process, ProjectForm, ProjectGallery, ProjectSpotlight, Recommendations, ServicesGrid, UrgentAssistance, WhyJay } from './components';
+export function App(){return <><Header/><main><Hero/><CustomerStories/><ProjectGallery/><ServicesGrid/><WhyJay/><ProjectSpotlight/><div className="section lower-area"><div className="container lower-grid"><div className="lower-main"><Recommendations/><Process/><ProjectForm/></div><div className="urgent-column"><UrgentAssistance/></div></div></div></main><Footer/></>}

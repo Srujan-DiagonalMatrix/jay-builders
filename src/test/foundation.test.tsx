@@ -20,9 +20,9 @@ describe('application foundation', () => {
 
   it('renders every required section ID in the specified one-page order', () => {
     const { container } = render(<App />);
-    const sections = [...container.querySelectorAll('section')];
+    const sections = [...container.querySelectorAll('[id]')].filter(({ id }) => sectionOrder.includes(id as never));
     expect(sections.map(({ id }) => id)).toEqual(sectionOrder);
     sectionOrder.forEach((id) => expect(document.getElementById(id)).toBeInTheDocument());
-    expect(screen.getByRole('heading', { name: 'customer stories' })).toBeVisible();
+    expect(screen.getByRole('heading', { name: /see what our customers say/i })).toBeVisible();
   });
 });

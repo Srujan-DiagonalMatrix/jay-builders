@@ -1,0 +1,2 @@
+import { reviews } from '../content/site'; import { SectionHeading } from './shared';
+export function Recommendations(){return <section id="recommendations" className="subsection"><SectionHeading>Recommended by homeowners &amp; landlords</SectionHeading><div className="reviews-grid">{reviews.map(r=><article className="review-card" key={r[0]}><p className="stars" aria-label="5 out of 5 stars">★★★★★</p><h3>{r[0]}</h3><p>“{r[1]}”</p><footer><strong>{r[2]}</strong><span>{r[3]}</span></footer></article>)}</div></section>}
