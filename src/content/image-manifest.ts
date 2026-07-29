@@ -23,6 +23,6 @@ export const imageManifest:readonly ImageAsset[]=[
  {...asset('OutdatedProp-spotlight-detail-02','OutDatedProp','detail-02.png','Project Spotlight dining view','Open-plan dining area beside the renovated kitchen','173:233'),sourceFilename:'detail-02.png',width:173,height:233,inlineSrc:`data:image/png;base64,${spotlightDetail02.replace(/\s/g,'')}`},
  {...asset('OutdatedProp-spotlight-detail-03','OutDatedProp','detail-03.png','Project Spotlight bathroom view','Completed modern bathroom in the renovated home','174:233'),sourceFilename:'detail-03.png',width:174,height:233,inlineSrc:`data:image/png;base64,${spotlightDetail03.replace(/\s/g,'')}`},
  {...asset('OutdatedProp-spotlight-detail-04','OutDatedProp','detail-04.png','Project Spotlight island view','Kitchen island and garden doors in the completed renovation','173:233'),sourceFilename:'detail-04.png',width:173,height:233,inlineSrc:`data:image/png;base64,${spotlightDetail04.replace(/\s/g,'')}`},
- {...asset('NeedHelp','UrgentAssis','NeedHelp.png','Decorative urgent-assistance vehicle treatment','','16:9',{x:50,y:68}),inlineSrc:`data:image/png;base64,${needHelpBase64.replace(/\s/g,'')}`},
+ {...asset('NeedHelp','UrgentAssis','NeedHelp.png','Decorative urgent-assistance vehicle treatment','','16:9',{x:50,y:68}),width:732,height:436,inlineSrc:`data:image/png;base64,${needHelpBase64.replace(/\s/g,'')}`},
 ] as const;
 export function getImageAsset(id:string):ImageAsset{const found=imageManifest.find(image=>image.id===id);if(!found)throw new Error(`Unknown image asset: ${id}`);return found}
