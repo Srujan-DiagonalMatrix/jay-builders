@@ -1,7 +1,7 @@
 import { render, screen, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { App } from '../App';
-import { customerSaysContent, headerHeroContent, ourWorkContent, preferredContactOptions, processContent, projectFormContent, projectSpotlightContent, recommendationsContent, servicesContent, typeOfWorkOptions, urgentAssistanceContent, whyJayContent } from '../content/site';
+import { customerSaysContent, footerContent, headerHeroContent, ourWorkContent, placeholderBusinessData, preferredContactOptions, processContent, projectFormContent, projectSpotlightContent, recommendationsContent, servicesContent, typeOfWorkOptions, urgentAssistanceContent, whyJayContent } from '../content/site';
 
 describe('approved content contract', () => {
   it('provides a unique, canonical YouTube video ID for every customer story', () => {
@@ -43,5 +43,16 @@ describe('approved content contract', () => {
     const contact = screen.getByLabelText(/Preferred Contact Method/);
     expect(within(work).getAllByRole('option').slice(1).map(option => option.textContent)).toEqual(typeOfWorkOptions);
     expect(within(contact).getAllByRole('option').slice(1).map(option => option.textContent)).toEqual(preferredContactOptions);
+  });
+
+  it('models social destinations and legal company information from their canonical sources', () => {
+    footerContent.social.forEach(social => {
+      expect(typeof social.label).toBe('string');
+      expect(social.url).toMatch(/^https:\/\//);
+      expect(social.icon).toMatch(/^(facebook|instagram|whatsapp)$/);
+    });
+    expect(JSON.stringify(footerContent.legal)).not.toContain(placeholderBusinessData.companyNumber);
+    render(<App />);
+    expect(screen.getByText(new RegExp(`${footerContent.legal.companyNumberLabel}: ${placeholderBusinessData.companyNumber}`))).toBeInTheDocument();
   });
 });
