@@ -99,7 +99,19 @@ describe('production asset contract', () => {
     expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([1672, 941]);
     expect(thumbnail).toHaveAttribute('width', '1672');
     expect(thumbnail).toHaveAttribute('height', '941');
-    expect(container.querySelectorAll('.play-icon')).toHaveLength(1);
+    expect(container.querySelectorAll('.play-icon')).toHaveLength(0);
+  });
+
+  it('renders the supplied Bathroom Renovation thumbnail without a network dependency', () => {
+    render(<CustomerStories/>);
+    const thumbnail = screen.getByAltText('Bathroom Renovation customer story');
+    const source = thumbnail.getAttribute('src') ?? '';
+    const decoded = Buffer.from(source.split(',')[1], 'base64');
+
+    expect(source).toMatch(/^data:image\/png;base64,/);
+    expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([1672, 941]);
+    expect(thumbnail).toHaveAttribute('width', '1672');
+    expect(thumbnail).toHaveAttribute('height', '941');
   });
 
   it('renders the supplied urgent-assistance image without a generated-file dependency', () => {
