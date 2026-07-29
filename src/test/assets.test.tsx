@@ -3,11 +3,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { Hero } from '../components/Hero';
 import { CustomerStories } from '../components/CustomerStories';
+import { ProjectSpotlight } from '../components/ProjectSpotlight';
 import { imageManifest } from '../content/image-manifest';
 
 describe('production asset contract', () => {
   it('has a complete, unique manifest with required metadata', () => {
-    expect(imageManifest).toHaveLength(20);
+    expect(imageManifest).toHaveLength(18);
     expect(new Set(imageManifest.map(asset => asset.id)).size).toBe(imageManifest.length);
     for (const asset of imageManifest) {
       expect(asset.sourceFilename).toMatch(/\.png$/);
@@ -57,5 +58,32 @@ describe('production asset contract', () => {
   it('lazy-loads below-the-fold photography', () => {
     render(<CustomerStories/>);
     for (const image of screen.getAllByRole('img')) expect(image).toHaveAttribute('loading', 'lazy');
+  });
+
+  it('renders only the supplied composite image in Project Spotlight', () => {
+    const removedIds = [
+      'OutDatedProp-main',
+      'OutDatedProp-detail-01',
+      'OutDatedProp-detail-02',
+    ];
+    expect(imageManifest.map((asset) => asset.id)).not.toEqual(
+      expect.arrayContaining(removedIds),
+    );
+    render(<ProjectSpotlight/>);
+    const images = screen.getAllByRole('img');
+    expect(images).toHaveLength(1);
+    expect(images[0]).toHaveAttribute(
+      'alt',
+      'Four views of a completed open-plan kitchen, dining room and bathroom renovation',
+    );
+    expect(images[0]).toHaveAttribute(
+      'src',
+      '/assets/images/OutDatedProp-project-spotlight-1440.webp',
+    );
+    expect(images[0]).toHaveAttribute('width', '1440');
+    expect(images[0]).toHaveAttribute('height', '736');
+    expect(document.querySelectorAll('.spotlight-gallery')).toHaveLength(1);
+    expect(document.querySelector('.spotlight-grid')?.firstElementChild).toHaveClass('spotlight-gallery');
+    expect(document.querySelector('.spotlight-quote')).toContainElement(screen.getByRole('link'));
   });
 });

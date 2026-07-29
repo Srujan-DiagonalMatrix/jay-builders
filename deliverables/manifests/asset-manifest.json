@@ -210,42 +210,16 @@
       ]
     },
     {
-      "productionBase": "OutDatedProp-main",
-      "sourceMaster": "assets-source/generated-masters/OutDatedProp-main.png",
+      "productionBase": "OutDatedProp-project-spotlight",
+      "sourceMaster": "assets-source/generated-masters/OutDatedProp-project-spotlight.png",
       "referenceSection": "OutDatedProp.png",
       "variants": [
-        "public/assets/images/OutDatedProp-main-480.webp",
-        "public/assets/images/OutDatedProp-main-960.webp",
-        "public/assets/images/OutDatedProp-main-1440.webp",
-        "public/assets/images/OutDatedProp-main-480.avif",
-        "public/assets/images/OutDatedProp-main-960.avif",
-        "public/assets/images/OutDatedProp-main-1440.avif"
-      ]
-    },
-    {
-      "productionBase": "OutDatedProp-detail-01",
-      "sourceMaster": "assets-source/generated-masters/OutDatedProp-detail-01.png",
-      "referenceSection": "OutDatedProp.png",
-      "variants": [
-        "public/assets/images/OutDatedProp-detail-01-480.webp",
-        "public/assets/images/OutDatedProp-detail-01-960.webp",
-        "public/assets/images/OutDatedProp-detail-01-1440.webp",
-        "public/assets/images/OutDatedProp-detail-01-480.avif",
-        "public/assets/images/OutDatedProp-detail-01-960.avif",
-        "public/assets/images/OutDatedProp-detail-01-1440.avif"
-      ]
-    },
-    {
-      "productionBase": "OutDatedProp-detail-02",
-      "sourceMaster": "assets-source/generated-masters/OutDatedProp-detail-02.png",
-      "referenceSection": "OutDatedProp.png",
-      "variants": [
-        "public/assets/images/OutDatedProp-detail-02-480.webp",
-        "public/assets/images/OutDatedProp-detail-02-960.webp",
-        "public/assets/images/OutDatedProp-detail-02-1440.webp",
-        "public/assets/images/OutDatedProp-detail-02-480.avif",
-        "public/assets/images/OutDatedProp-detail-02-960.avif",
-        "public/assets/images/OutDatedProp-detail-02-1440.avif"
+        "public/assets/images/OutDatedProp-project-spotlight-480.webp",
+        "public/assets/images/OutDatedProp-project-spotlight-960.webp",
+        "public/assets/images/OutDatedProp-project-spotlight-1440.webp",
+        "public/assets/images/OutDatedProp-project-spotlight-480.avif",
+        "public/assets/images/OutDatedProp-project-spotlight-960.avif",
+        "public/assets/images/OutDatedProp-project-spotlight-1440.avif"
       ]
     },
     {
