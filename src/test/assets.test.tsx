@@ -89,6 +89,19 @@ describe('production asset contract', () => {
     expect(thumbnail).toHaveAttribute('height', '941');
   });
 
+  it('renders the supplied Kitchen Extension thumbnail without a network dependency', () => {
+    const { container } = render(<CustomerStories/>);
+    const thumbnail = screen.getByAltText('Kitchen Extension customer story');
+    const source = thumbnail.getAttribute('src') ?? '';
+    const decoded = Buffer.from(source.split(',')[1], 'base64');
+
+    expect(source).toMatch(/^data:image\/png;base64,/);
+    expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([1672, 941]);
+    expect(thumbnail).toHaveAttribute('width', '1672');
+    expect(thumbnail).toHaveAttribute('height', '941');
+    expect(container.querySelectorAll('.play-icon')).toHaveLength(1);
+  });
+
   it('renders the supplied urgent-assistance image without a generated-file dependency', () => {
     const { container } = render(<UrgentAssistance/>);
     const image = container.querySelector('.urgent-media img');
