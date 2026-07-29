@@ -76,12 +76,10 @@ describe('production asset contract', () => {
       'alt',
       'Four views of a completed open-plan kitchen, dining room and bathroom renovation',
     );
-    expect(images[0]).toHaveAttribute(
-      'src',
-      '/assets/images/OutDatedProp-project-spotlight-1440.webp',
-    );
-    expect(images[0]).toHaveAttribute('width', '1440');
-    expect(images[0]).toHaveAttribute('height', '736');
+    expect(images[0].getAttribute('src')).toContain('OutDatedProp.png');
+    expect(images[0]).not.toHaveAttribute('srcset');
+    expect(images[0]).toHaveAttribute('width', '814');
+    expect(images[0]).toHaveAttribute('height', '182');
     expect(document.querySelectorAll('.spotlight-gallery')).toHaveLength(1);
     expect(document.querySelector('.spotlight-grid')?.firstElementChild).toHaveClass('spotlight-gallery');
     expect(document.querySelector('.spotlight-quote')).toContainElement(screen.getByRole('link'));
