@@ -1,0 +1,23 @@
+export const workOptions = ['Complete Renovation', 'Building Extension', 'Kitchen or Bathroom', 'Interior Finishing', 'Exterior Works', 'Electrical or Plumbing', 'Maintenance or Repairs', 'Emergency Call-out', 'Structural Work', 'Other'] as const;
+export const startOptions = ['As soon as possible', 'Within 1 month', '1–3 months', '3–6 months', 'More than 6 months', 'Not sure yet'] as const;
+export const budgetOptions = ['Under £5,000', '£5,000–£15,000', '£15,000–£30,000', '£30,000–£50,000', 'Over £50,000', 'Not sure yet'] as const;
+export const contactOptions = ['Phone', 'Email', 'WhatsApp'] as const;
+export const allowedExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.mp4', '.mov'] as const;
+export const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'video/mp4', 'video/quicktime'] as const;
+export const MAX_FILES = 8;
+export const MAX_FILE_SIZE = 20 * 1024 * 1024;
+export type EnquiryValues = { fullName: string; email: string; phone: string; postcode: string; workType: string; startDate: string; budget: string; contactMethod: string; description: string; website: string };
+export type EnquiryErrors = Partial<Record<keyof EnquiryValues | 'files', string>>;
+export const emptyEnquiry: EnquiryValues = { fullName: '', email: '', phone: '', postcode: '', workType: '', startDate: '', budget: '', contactMethod: '', description: '', website: '' };
+export function validateEnquiry(v: EnquiryValues): EnquiryErrors { const e: EnquiryErrors = {};
+  if (v.fullName.trim().length < 2) e.fullName = 'Enter your full name.';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)) e.email = 'Enter a valid email address.';
+  if (!/^[+()\d\s-]{7,20}$/.test(v.phone.trim())) e.phone = 'Enter a valid phone number.';
+  if (!/^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i.test(v.postcode.trim())) e.postcode = 'Enter a valid UK postcode.';
+  if (!(workOptions as readonly string[]).includes(v.workType)) e.workType = 'Select the type of work.';
+  if (v.startDate && !(startOptions as readonly string[]).includes(v.startDate)) e.startDate = 'Select a valid estimated start date.';
+  if (v.budget && !(budgetOptions as readonly string[]).includes(v.budget)) e.budget = 'Select a valid budget.';
+  if (!(contactOptions as readonly string[]).includes(v.contactMethod)) e.contactMethod = 'Select a preferred contact method.';
+  if (v.description.trim().length < 20 || v.description.length > 3000) e.description = 'Describe your project in 20 to 3,000 characters.'; return e; }
+export function fileExtension(name: string) { const dot=name.lastIndexOf('.'); return dot<0?'':name.slice(dot).toLowerCase(); }
+export function validateFiles(files: readonly File[]): string|undefined { if(files.length>MAX_FILES)return `Choose no more than ${MAX_FILES} files.`; for(const f of files){if(!(allowedExtensions as readonly string[]).includes(fileExtension(f.name))||!(allowedMimeTypes as readonly string[]).includes(f.type))return 'Files must be JPG, JPEG, PNG, WEBP, MP4 or MOV.';if(f.size>MAX_FILE_SIZE)return 'Each file must be 20 MB or smaller.';} }
