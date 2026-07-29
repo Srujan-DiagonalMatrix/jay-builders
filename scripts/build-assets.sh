@@ -20,4 +20,4 @@ for png in public/assets/images/*.png; do
 done
 python scripts/encode-webp.py
 
-echo "Generated 20 PNG masters and 120 responsive production variants."
+echo "Generated 22 PNG masters and 132 responsive production variants."

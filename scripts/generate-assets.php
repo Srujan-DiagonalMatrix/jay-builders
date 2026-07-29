@@ -19,9 +19,11 @@ $assets = [
   ['OurWork-project-04-before', 4/3, 'bathroom', 17], ['OurWork-project-04-after', 4/3, 'bathroom', 18],
   ['OurWork-project-05-before', 4/3, 'exterior', 19], ['OurWork-project-05-after', 4/3, 'exterior', 20],
   ['OurWork-project-06-before', 4/3, 'roof', 21], ['OurWork-project-06-after', 4/3, 'roof', 22],
-  ['OutDatedProp-main', 4/3, 'interior', 31],
-  ['OutDatedProp-detail-01', 4/3, 'kitchen', 32],
-  ['OutDatedProp-detail-02', 4/3, 'exterior', 33],
+  ['OutdatedProp-spotlight-main', 182/131, 'source-main', 31],
+  ['OutdatedProp-spotlight-detail-01', 169/233, 'source-detail-01', 32],
+  ['OutdatedProp-spotlight-detail-02', 173/233, 'source-detail-02', 33],
+  ['OutdatedProp-spotlight-detail-03', 174/233, 'source-detail-03', 34],
+  ['OutdatedProp-spotlight-detail-04', 173/233, 'source-detail-04', 35],
   ['UrgentAssis-background', 3/4, 'vehicle', 41],
 ];
 
@@ -102,11 +104,48 @@ function heroScene(string $path, int $width, int $height, string $reference): vo
   imagedestroy($source);
 }
 
+function sourceImage(string $path, int $width, int $height, string $encodedReference): void {
+  $encoded = preg_replace('/\s+/', '', file_get_contents($encodedReference));
+  $sourceBytes = base64_decode($encoded, true);
+  if ($sourceBytes === false) {
+    throw new RuntimeException("Invalid base64 image source: $encodedReference");
+  }
+  $source = imagecreatefromstring($sourceBytes);
+  if ($source === false) {
+    throw new RuntimeException("Invalid PNG image source: $encodedReference");
+  }
+  $rendition = imagecreatetruecolor($width, $height);
+  imagecopyresampled(
+    $rendition,
+    $source,
+    0,
+    0,
+    0,
+    0,
+    $width,
+    $height,
+    imagesx($source),
+    imagesy($source),
+  );
+  imagepng($rendition, $path, 7);
+  imagedestroy($rendition);
+  imagedestroy($source);
+}
+
 foreach ($assets as [$name,$ratio,$kind,$seed]) {
   $w = 1600; $h = (int)round($w/$ratio);
   $headerReference = "$root/requirements/image-assets/section-references/Header.png";
+  $spotlightReferences = [
+    'source-main' => "$root/assets-source/images/spotlight/main.png.base64",
+    'source-detail-01' => "$root/assets-source/images/spotlight/detail-01.png.base64",
+    'source-detail-02' => "$root/assets-source/images/spotlight/detail-02.png.base64",
+    'source-detail-03' => "$root/assets-source/images/spotlight/detail-03.png.base64",
+    'source-detail-04' => "$root/assets-source/images/spotlight/detail-04.png.base64",
+  ];
   if ($name === 'Header-hero') {
     heroScene("$masterDir/$name.png", $w, $h, $headerReference);
+  } elseif (isset($spotlightReferences[$kind])) {
+    sourceImage("$masterDir/$name.png", $w, $h, $spotlightReferences[$kind]);
   } else {
     scene("$masterDir/$name.png", $w, $h, $kind, $seed);
   }
@@ -115,6 +154,8 @@ foreach ($assets as [$name,$ratio,$kind,$seed]) {
     $tmp = "$assetDir/$name-$vw.png";
     if ($name === 'Header-hero') {
       heroScene($tmp, $vw, $vh, $headerReference);
+    } elseif (isset($spotlightReferences[$kind])) {
+      sourceImage($tmp, $vw, $vh, $spotlightReferences[$kind]);
     } else {
       scene($tmp, $vw, $vh, $kind, $seed);
     }
