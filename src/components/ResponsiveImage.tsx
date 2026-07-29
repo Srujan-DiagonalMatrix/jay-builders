@@ -24,6 +24,7 @@ export function ResponsiveImage({
         <img
           {...props}
           src={asset.inlineSrc}
+          sizes={sizes}
           width={asset.width}
           height={asset.height}
           alt={asset.alt}

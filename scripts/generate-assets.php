@@ -19,7 +19,7 @@ $assets = [
   ['OurWork-project-04-before', 4/3, 'bathroom', 17], ['OurWork-project-04-after', 4/3, 'bathroom', 18],
   ['OurWork-project-05-before', 4/3, 'exterior', 19], ['OurWork-project-05-after', 4/3, 'exterior', 20],
   ['OurWork-project-06-before', 4/3, 'roof', 21], ['OurWork-project-06-after', 4/3, 'roof', 22],
-  ['OutdatedProp-spotlight', 341/119, 'source', 31],
+  ['OutdatedProp-spotlight', 341/176, 'source', 31],
   ['UrgentAssis-background', 3/4, 'vehicle', 41],
 ];
 

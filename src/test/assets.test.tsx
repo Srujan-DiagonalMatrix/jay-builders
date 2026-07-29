@@ -34,15 +34,16 @@ describe('production asset contract', () => {
     expect(source.subarray(0, 8)).toEqual(
       Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
     );
-    expect([source.readUInt32BE(16), source.readUInt32BE(20)]).toEqual([341, 119]);
+    expect([source.readUInt32BE(16), source.readUInt32BE(20)]).toEqual([341, 176]);
     expect(asset).toMatchObject({
       sourceFilename: 'OutdatedProp.png',
       width: 341,
-      height: 119,
-      cropRatio: '341:119',
+      height: 176,
+      cropRatio: '341:176',
       classification: 'meaningful',
     });
-    expect(image).toHaveAttribute('sizes', '(max-width: 575px) 100vw, 30vw');
+    expect(image).toHaveAttribute('sizes', '(max-width: 575px) 100vw, 44vw');
+    expect(image.getAttribute('src')).toMatch(/^data:image\/png;base64,/);
     for (const variant of asset?.variants ?? []) {
       expect(existsSync(`public${variant.src}`), variant.src).toBe(true);
     }
