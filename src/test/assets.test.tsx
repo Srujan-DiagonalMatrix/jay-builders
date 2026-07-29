@@ -34,13 +34,13 @@ describe('production asset contract', () => {
     expect(source.subarray(0, 8)).toEqual(
       Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
     );
-    expect([source.readUInt32BE(16), source.readUInt32BE(20)]).toEqual([341, 119]);
+    expect([source.readUInt32BE(16), source.readUInt32BE(20)]).toEqual([728, 524]);
     expect(assets).toHaveLength(5);
     expect(assets[0]).toMatchObject({
       sourceFilename: 'main.png',
-      width: 341,
-      height: 119,
-      cropRatio: '341:119',
+      width: 728,
+      height: 524,
+      cropRatio: '182:131',
       classification: 'meaningful',
     });
     expect(image).toHaveAttribute('sizes', '(max-width: 1024px) 100vw, 48vw');

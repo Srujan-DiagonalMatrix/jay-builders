@@ -19,11 +19,11 @@ $assets = [
   ['OurWork-project-04-before', 4/3, 'bathroom', 17], ['OurWork-project-04-after', 4/3, 'bathroom', 18],
   ['OurWork-project-05-before', 4/3, 'exterior', 19], ['OurWork-project-05-after', 4/3, 'exterior', 20],
   ['OurWork-project-06-before', 4/3, 'roof', 21], ['OurWork-project-06-after', 4/3, 'roof', 22],
-  ['OutdatedProp-spotlight-main', 341/119, 'source-main', 31],
-  ['OutdatedProp-spotlight-detail-01', 83/52, 'source-detail-01', 32],
-  ['OutdatedProp-spotlight-detail-02', 81/52, 'source-detail-02', 33],
-  ['OutdatedProp-spotlight-detail-03', 81/52, 'source-detail-03', 34],
-  ['OutdatedProp-spotlight-detail-04', 81/52, 'source-detail-04', 35],
+  ['OutdatedProp-spotlight-main', 182/131, 'source-main', 31],
+  ['OutdatedProp-spotlight-detail-01', 169/233, 'source-detail-01', 32],
+  ['OutdatedProp-spotlight-detail-02', 173/233, 'source-detail-02', 33],
+  ['OutdatedProp-spotlight-detail-03', 174/233, 'source-detail-03', 34],
+  ['OutdatedProp-spotlight-detail-04', 173/233, 'source-detail-04', 35],
   ['UrgentAssis-background', 3/4, 'vehicle', 41],
 ];
 
