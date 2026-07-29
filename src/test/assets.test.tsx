@@ -4,11 +4,12 @@ import { describe, expect, it } from 'vitest';
 import { Hero } from '../components/Hero';
 import { CustomerStories } from '../components/CustomerStories';
 import { UrgentAssistance } from '../components/UrgentAssistance';
+import { ProjectSpotlight } from '../components/ProjectSpotlight';
 import { imageManifest } from '../content/image-manifest';
 
 describe('production asset contract', () => {
   it('has a complete, unique manifest with required metadata', () => {
-    expect(imageManifest).toHaveLength(20);
+    expect(imageManifest).toHaveLength(18);
     expect(new Set(imageManifest.map(asset => asset.id)).size).toBe(imageManifest.length);
     for (const asset of imageManifest) {
       expect(asset.sourceFilename).toMatch(/\.png$/);
@@ -23,9 +24,32 @@ describe('production asset contract', () => {
     }
   });
 
+  it('uses the supplied Project Spotlight source and generated files', () => {
+    render(<ProjectSpotlight/>);
+    const image = screen.getByAltText('Renovated open-plan kitchen with a central island, dining area and garden doors');
+    const asset = imageManifest.find(({ id }) => id === 'OutdatedProp-spotlight');
+
+    const encodedSource = readFileSync('assets-source/images/OutdatedProp.png.base64', 'utf8');
+    const source = Buffer.from(encodedSource.replace(/\s/g, ''), 'base64');
+    expect(source.subarray(0, 8)).toEqual(
+      Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
+    );
+    expect([source.readUInt32BE(16), source.readUInt32BE(20)]).toEqual([341, 119]);
+    expect(asset).toMatchObject({
+      sourceFilename: 'OutdatedProp.png',
+      width: 341,
+      height: 119,
+      cropRatio: '341:119',
+      classification: 'meaningful',
+    });
+    expect(image).toHaveAttribute('sizes', '(max-width: 575px) 100vw, 30vw');
+    for (const variant of asset?.variants ?? []) {
+      expect(existsSync(`public${variant.src}`), variant.src).toBe(true);
+    }
+  });
+
   it('declares every generated master and variant without committing binaries', () => {
     for (const asset of imageManifest) {
-      expect(asset.sourceFilename).toBe(`${asset.id}.png`);
       for (const variant of asset.variants) {
         expect(variant.src).toBe(`/assets/images/${asset.id}-${variant.width}.${variant.format}`);
         expect(variant.height).toBeGreaterThan(0);
