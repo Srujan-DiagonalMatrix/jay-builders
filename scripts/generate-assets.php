@@ -22,7 +22,7 @@ $assets = [
   ['OutDatedProp-main', 4/3, 'interior', 31],
   ['OutDatedProp-detail-01', 4/3, 'kitchen', 32],
   ['OutDatedProp-detail-02', 4/3, 'exterior', 33],
-  ['UrgentAssis-background', 3/4, 'vehicle', 41],
+  ['NeedHelp', 16/9, 'provided', 41],
 ];
 
 function scene(string $path, int $w, int $h, string $kind, int $seed): void {
@@ -102,11 +102,44 @@ function heroScene(string $path, int $width, int $height, string $reference): vo
   imagedestroy($source);
 }
 
+function providedScene(string $path, int $width, int $height, string $reference): void {
+  $encoded = file_get_contents($reference);
+  $decoded = $encoded === false ? false : base64_decode($encoded, true);
+  $source = $decoded === false ? false : imagecreatefromstring($decoded);
+  if ($source === false) {
+    throw new RuntimeException("Unable to decode provided image: $reference");
+  }
+  $scene = imagecreatetruecolor($width, $height);
+  $sourceWidth = imagesx($source);
+  $sourceHeight = imagesy($source);
+  $cropY = (int)round($sourceHeight * .63);
+
+  imagecopyresampled(
+    $scene,
+    $source,
+    0,
+    0,
+    0,
+    $cropY,
+    $width,
+    $height,
+    $sourceWidth,
+    $sourceHeight - $cropY,
+  );
+
+  imagepng($scene, $path, 7);
+  imagedestroy($scene);
+  imagedestroy($source);
+}
+
 foreach ($assets as [$name,$ratio,$kind,$seed]) {
   $w = 1600; $h = (int)round($w/$ratio);
   $headerReference = "$root/requirements/image-assets/section-references/Header.png";
+  $needHelpReference = "$root/requirements/image-assets/NeedHelp.png.base64";
   if ($name === 'Header-hero') {
     heroScene("$masterDir/$name.png", $w, $h, $headerReference);
+  } elseif ($name === 'NeedHelp') {
+    providedScene("$masterDir/$name.png", $w, $h, $needHelpReference);
   } else {
     scene("$masterDir/$name.png", $w, $h, $kind, $seed);
   }
@@ -115,6 +148,8 @@ foreach ($assets as [$name,$ratio,$kind,$seed]) {
     $tmp = "$assetDir/$name-$vw.png";
     if ($name === 'Header-hero') {
       heroScene($tmp, $vw, $vh, $headerReference);
+    } elseif ($name === 'NeedHelp') {
+      providedScene($tmp, $vw, $vh, $needHelpReference);
     } else {
       scene($tmp, $vw, $vh, $kind, $seed);
     }

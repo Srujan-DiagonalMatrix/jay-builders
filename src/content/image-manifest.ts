@@ -14,6 +14,6 @@ export const imageManifest:readonly ImageAsset[]=[
  asset('OutDatedProp-main','OutDatedProp','OutDatedProp.png','Project spotlight main gallery image','Modern family home following a complete renovation','4:3'),
  asset('OutDatedProp-detail-01','OutDatedProp','OutDatedProp.png','Project spotlight kitchen detail','New kitchen in the featured family home','4:3'),
  asset('OutDatedProp-detail-02','OutDatedProp','OutDatedProp.png','Project spotlight exterior detail','Exterior improvements to the featured family home','4:3'),
- asset('UrgentAssis-background','UrgentAssis','UrgentAssis.png','Decorative urgent-assistance vehicle treatment','','3:4',{x:50,y:68}),
+ asset('NeedHelp','UrgentAssis','NeedHelp.png','Decorative urgent-assistance vehicle treatment','','16:9',{x:50,y:68}),
 ] as const;
 export function getImageAsset(id:string):ImageAsset{const found=imageManifest.find(image=>image.id===id);if(!found)throw new Error(`Unknown image asset: ${id}`);return found}
