@@ -5,6 +5,7 @@ import { Hero } from '../components/Hero';
 import { CustomerStories } from '../components/CustomerStories';
 import { UrgentAssistance } from '../components/UrgentAssistance';
 import { ProjectSpotlight } from '../components/ProjectSpotlight';
+import { ProjectGallery } from '../components/ProjectGallery';
 import { imageManifest } from '../content/image-manifest';
 
 describe('production asset contract', () => {
@@ -112,6 +113,19 @@ describe('production asset contract', () => {
     expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([1672, 941]);
     expect(thumbnail).toHaveAttribute('width', '1672');
     expect(thumbnail).toHaveAttribute('height', '941');
+  });
+
+  it('renders the supplied Full Property Renovation thumbnail without a binary-file dependency', () => {
+    render(<ProjectGallery/>);
+    const thumbnail = screen.getByAltText('Full property renovation before and after');
+    const source = thumbnail.getAttribute('src') ?? '';
+    const decoded = Buffer.from(source.split(',')[1], 'base64');
+
+    expect(source).toMatch(/^data:image\/png;base64,/);
+    expect(decoded.subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+    expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([1578, 997]);
+    expect(thumbnail).toHaveAttribute('width', '1578');
+    expect(thumbnail).toHaveAttribute('height', '997');
   });
 
   it('renders the supplied urgent-assistance image without a generated-file dependency', () => {
