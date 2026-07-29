@@ -12,9 +12,9 @@
     "start": "vite preview --host 0.0.0.0 --port ${PORT:-4173}",
     "lint": "eslint .",
     "type-check": "tsc -b --pretty false",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test": "NODE_OPTIONS=--require=./scripts/node20-jsdom.cjs vitest run",
+    "test:watch": "NODE_OPTIONS=--require=./scripts/node20-jsdom.cjs vitest",
+    "test:coverage": "NODE_OPTIONS=--require=./scripts/node20-jsdom.cjs vitest run --coverage"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
