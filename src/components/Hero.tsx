@@ -1,4 +1,4 @@
-import headerHero from '../../requirements/image-assets/section-references/Header.png';
+import { headerHeroImage as headerHero } from '../content/header-hero-image';
 import { headerHeroContent as content } from '../content/site';
 
 export function Hero() {
