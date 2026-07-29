@@ -4,6 +4,12 @@ import { App } from '../App';
 import { customerSaysContent, headerHeroContent, ourWorkContent, preferredContactOptions, processContent, projectFormContent, projectSpotlightContent, recommendationsContent, servicesContent, typeOfWorkOptions, urgentAssistanceContent, whyJayContent } from '../content/site';
 
 describe('approved content contract', () => {
+  it('provides a unique, canonical YouTube video ID for every customer story', () => {
+    const videoIds = customerSaysContent.stories.map(story => story.youtubeVideoId);
+    expect(new Set(videoIds).size).toBe(customerSaysContent.stories.length);
+    videoIds.forEach(videoId => expect(videoId).toMatch(/^[A-Za-z0-9_-]{11}$/));
+  });
+
   it('renders every approved collection record exactly once in its section', () => {
     render(<App />);
     const cases = [
