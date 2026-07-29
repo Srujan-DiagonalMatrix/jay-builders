@@ -19,7 +19,11 @@ $assets = [
   ['OurWork-project-04-before', 4/3, 'bathroom', 17], ['OurWork-project-04-after', 4/3, 'bathroom', 18],
   ['OurWork-project-05-before', 4/3, 'exterior', 19], ['OurWork-project-05-after', 4/3, 'exterior', 20],
   ['OurWork-project-06-before', 4/3, 'roof', 21], ['OurWork-project-06-after', 4/3, 'roof', 22],
-  ['OutdatedProp-spotlight', 341/176, 'source', 31],
+  ['OutdatedProp-spotlight-main', 341/119, 'source-main', 31],
+  ['OutdatedProp-spotlight-detail-01', 83/52, 'source-detail-01', 32],
+  ['OutdatedProp-spotlight-detail-02', 81/52, 'source-detail-02', 33],
+  ['OutdatedProp-spotlight-detail-03', 81/52, 'source-detail-03', 34],
+  ['OutdatedProp-spotlight-detail-04', 81/52, 'source-detail-04', 35],
   ['UrgentAssis-background', 3/4, 'vehicle', 41],
 ];
 
@@ -131,11 +135,17 @@ function sourceImage(string $path, int $width, int $height, string $encodedRefer
 foreach ($assets as [$name,$ratio,$kind,$seed]) {
   $w = 1600; $h = (int)round($w/$ratio);
   $headerReference = "$root/requirements/image-assets/section-references/Header.png";
-  $spotlightReference = "$root/assets-source/images/OutdatedProp.png.base64";
+  $spotlightReferences = [
+    'source-main' => "$root/assets-source/images/spotlight/main.png.base64",
+    'source-detail-01' => "$root/assets-source/images/spotlight/detail-01.png.base64",
+    'source-detail-02' => "$root/assets-source/images/spotlight/detail-02.png.base64",
+    'source-detail-03' => "$root/assets-source/images/spotlight/detail-03.png.base64",
+    'source-detail-04' => "$root/assets-source/images/spotlight/detail-04.png.base64",
+  ];
   if ($name === 'Header-hero') {
     heroScene("$masterDir/$name.png", $w, $h, $headerReference);
-  } elseif ($name === 'OutdatedProp-spotlight') {
-    sourceImage("$masterDir/$name.png", $w, $h, $spotlightReference);
+  } elseif (isset($spotlightReferences[$kind])) {
+    sourceImage("$masterDir/$name.png", $w, $h, $spotlightReferences[$kind]);
   } else {
     scene("$masterDir/$name.png", $w, $h, $kind, $seed);
   }
@@ -144,8 +154,8 @@ foreach ($assets as [$name,$ratio,$kind,$seed]) {
     $tmp = "$assetDir/$name-$vw.png";
     if ($name === 'Header-hero') {
       heroScene($tmp, $vw, $vh, $headerReference);
-    } elseif ($name === 'OutdatedProp-spotlight') {
-      sourceImage($tmp, $vw, $vh, $spotlightReference);
+    } elseif (isset($spotlightReferences[$kind])) {
+      sourceImage($tmp, $vw, $vh, $spotlightReferences[$kind]);
     } else {
       scene($tmp, $vw, $vh, $kind, $seed);
     }
