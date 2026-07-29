@@ -99,7 +99,7 @@ describe('production asset contract', () => {
     expect(decoded.subarray(0, 8)).toEqual(
       Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
     );
-    expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([183, 109]);
+    expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([732, 436]);
     expect(image).toHaveAttribute('loading', 'lazy');
   });
 
