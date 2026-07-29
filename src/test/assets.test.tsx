@@ -128,6 +128,20 @@ describe('production asset contract', () => {
     expect(thumbnail).toHaveAttribute('height', '997');
   });
 
+  it('renders the supplied Rear Extension thumbnail without a binary-file dependency', () => {
+    render(<ProjectGallery/>);
+    const thumbnail = screen.getByAltText('Rear extension before and after');
+    const source = thumbnail.getAttribute('src') ?? '';
+    const decoded = Buffer.from(source.split(',')[1], 'base64');
+
+    expect(source).toMatch(/^data:image\/png;base64,/);
+    expect(decoded.subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+    expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([1573, 1000]);
+    expect(thumbnail).toHaveAttribute('width', '1573');
+    expect(thumbnail).toHaveAttribute('height', '1000');
+    expect(thumbnail).toHaveAttribute('loading', 'lazy');
+  });
+
   it('renders the supplied urgent-assistance image without a generated-file dependency', () => {
     const { container } = render(<UrgentAssistance/>);
     const image = container.querySelector('.urgent-media img');
