@@ -22,8 +22,9 @@ export function ServicesGrid() {
         <aside className="guidance-card">
           <span className="guidance-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
-              <path d="M8 7V5.75C8 4.78 8.78 4 9.75 4h4.5C15.22 4 16 4.78 16 5.75V7M5.75 7h12.5C19.22 7 20 7.78 20 8.75v8.5c0 .97-.78 1.75-1.75 1.75H5.75C4.78 19 4 18.22 4 17.25v-8.5C4 7.78 4.78 7 5.75 7Z" />
-              <path d="M4 11.5h16M10 11.5v2h4v-2" />
+              <path d="M4 13v-2a8 8 0 0 1 16 0v2" />
+              <path d="M5.5 12H4.75A1.75 1.75 0 0 0 3 13.75v2.5C3 17.22 3.78 18 4.75 18H6v-6h-.5ZM18 12h1.25c.97 0 1.75.78 1.75 1.75v2.5c0 .97-.78 1.75-1.75 1.75H18v-6Z" />
+              <path d="M18 18c0 1.1-.9 2-2 2h-2M14 20h-2" />
             </svg>
           </span>
           <h3>{content.guidance.heading}</h3>
