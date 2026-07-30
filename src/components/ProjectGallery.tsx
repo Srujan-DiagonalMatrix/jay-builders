@@ -39,8 +39,8 @@ const suppliedThumbnails: Partial<
   'Driveway & Landscaping': {
     src: drivewayLandscapingThumbnail,
     alt: 'Driveway and landscaping before and after',
-    width: 1596,
-    height: 1140,
+    width: 1536,
+    height: 1024,
   },
   'Roofing & Exterior': {
     src: roofingExteriorThumbnail,

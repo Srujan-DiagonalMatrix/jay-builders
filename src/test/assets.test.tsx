@@ -83,9 +83,9 @@ it('renders the Driveway & Landscaping thumbnail without a binary-file dependenc
     Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
   );
   expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([
-    1596,
-    1140,
+    1536,
+    1024,
   ]);
-  expect(thumbnail).toHaveAttribute('width', '1596');
-  expect(thumbnail).toHaveAttribute('height', '1140');
+  expect(thumbnail).toHaveAttribute('width', '1536');
+  expect(thumbnail).toHaveAttribute('height', '1024');
 });
