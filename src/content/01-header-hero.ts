@@ -11,7 +11,7 @@ export const headerHeroContent = {
     { label: 'Contact', target: '#contact' },
   ] satisfies NavigationItem[],
   primaryCta: { label: 'Request a Free Quote', target: '#contact' },
-  headline: ['BUILDING TRUST.', 'DELIVERING QUALITY.'],
+  headline: ['BUILT FOR READING.', 'TRUSTED BY LOCAL HOMEOWNERS.'],
   subhead: ['COMPLETE RENOVATIONS, EXTENSIONS', 'AND PROPERTY SERVICES YOU CAN RELY ON.'],
   trustPoints: ['Fully Insured', 'Experienced Team', 'On Time, On Budget', 'Clear Quotations', 'Quality Workmanship', 'Emergency Call-outs'],
   secondaryCta: { label: 'View Our Work', target: '#our-work' },
