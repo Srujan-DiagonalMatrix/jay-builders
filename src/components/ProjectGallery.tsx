@@ -1,5 +1,6 @@
 import { fullPropertyRenovationThumbnail } from '../content/full-property-renovation-thumbnail';
 import { getImageAsset } from '../content/image-manifest';
+import { kitchenTransformationThumbnail } from '../content/kitchen-transformation-thumbnail';
 import { rearExtensionThumbnail } from '../content/rear-extension-thumbnail';
 import { roofingExteriorThumbnail } from '../content/roofing-exterior-thumbnail';
 import { ourWorkContent as content } from '../content/site';
@@ -27,6 +28,12 @@ const suppliedThumbnails: Partial<
     alt: 'Rear extension before and after',
     width: 1573,
     height: 1000,
+  },
+  'Kitchen Transformation': {
+    src: kitchenTransformationThumbnail,
+    alt: 'Kitchen transformation before and after',
+    width: 1536,
+    height: 1024,
   },
   'Roofing & Exterior': {
     src: roofingExteriorThumbnail,
