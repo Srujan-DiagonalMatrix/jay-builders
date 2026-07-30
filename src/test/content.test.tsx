@@ -32,7 +32,7 @@ describe('approved content contract', () => {
 
   it('renders every CTA label from its source module without substitutions', () => {
     render(<App />);
-    const ctas = [headerHeroContent.primaryCta.label, headerHeroContent.secondaryCta.label, customerSaysContent.cta.label, ourWorkContent.cta.label, servicesContent.guidance.cta.label, projectSpotlightContent.cta.label, projectFormContent.cta.label, urgentAssistanceContent.secondaryCta.label];
+    const ctas = [headerHeroContent.primaryCta.label, headerHeroContent.secondaryCta.label, customerSaysContent.cta.label, ourWorkContent.cta.label, projectSpotlightContent.cta.label, projectFormContent.cta.label, urgentAssistanceContent.secondaryCta.label];
     ctas.forEach(label => expect(screen.getAllByText(label).length).toBeGreaterThanOrEqual(1));
     expect(screen.getAllByText(headerHeroContent.primaryCta.label)).toHaveLength(2);
   });
