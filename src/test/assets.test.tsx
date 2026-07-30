@@ -17,11 +17,11 @@ it('renders the supplied Roofing & Exterior thumbnail without a binary-file depe
     Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
   );
   expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([
-    1536,
-    1024,
+    1900,
+    828,
   ]);
-  expect(thumbnail).toHaveAttribute('width', '1536');
-  expect(thumbnail).toHaveAttribute('height', '1024');
+  expect(thumbnail).toHaveAttribute('width', '1900');
+  expect(thumbnail).toHaveAttribute('height', '828');
 });
 
 it('renders the supplied Rear Extension thumbnail without a binary-file dependency', () => {
