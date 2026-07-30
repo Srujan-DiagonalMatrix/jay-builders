@@ -1,3 +1,4 @@
+import { bathroomRenovationProjectThumbnail } from '../content/bathroom-renovation-project-thumbnail';
 import { drivewayLandscapingThumbnail } from '../content/driveway-landscaping-thumbnail';
 import { fullPropertyRenovationThumbnail } from '../content/full-property-renovation-thumbnail';
 import { getImageAsset } from '../content/image-manifest';
@@ -35,6 +36,12 @@ const suppliedThumbnails: Partial<
     alt: 'Kitchen transformation before and after',
     width: 1536,
     height: 1024,
+  },
+  'Bathroom Renovation': {
+    src: bathroomRenovationProjectThumbnail,
+    alt: 'Bathroom renovation before and after',
+    width: 1528,
+    height: 1029,
   },
   'Driveway & Landscaping': {
     src: drivewayLandscapingThumbnail,
