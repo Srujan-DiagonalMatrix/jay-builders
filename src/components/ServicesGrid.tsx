@@ -4,6 +4,17 @@ import { SectionHeading } from './shared';
 export function ServicesGrid() {
   return (
     <section id={content.sectionId} className="services-section">
+      <span className="services-heading__mark" aria-hidden="true">
+        <svg viewBox="0 0 88 44" focusable="false">
+          <path d="M4 30 35 4l31 26M50 14l8-6 26 22M59 9v10" />
+          <g>
+            <rect x="31" y="28" width="5" height="5" />
+            <rect x="39" y="28" width="5" height="5" />
+            <rect x="31" y="36" width="5" height="5" />
+            <rect x="39" y="36" width="5" height="5" />
+          </g>
+        </svg>
+      </span>
       <SectionHeading>{content.heading}</SectionHeading>
       <div className="services-grid">
         {content.services.map((service) => (
