@@ -59,7 +59,7 @@ const suppliedThumbnails: Partial<
 
 export function ProjectGallery() {
   return (
-    <section id={content.sectionId} className="section section--soft">
+    <section id={content.sectionId} className="section section--soft our-work-section">
       <div className="container">
         <SectionHeading>{content.heading}</SectionHeading>
 
