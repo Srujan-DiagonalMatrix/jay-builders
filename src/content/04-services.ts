@@ -11,5 +11,4 @@ export const servicesContent = {
     { title: 'Maintenance Services', description: 'Planned maintenance, repairs and landlord services.', icon: 'maintenance' },
     { title: 'Emergency Call-outs', description: 'Fast response for urgent building, plumbing and electrical issues.', icon: 'emergency-callout' },
   ] satisfies ServiceRecord[],
-  guidance: { heading: 'Not sure which service you need?', body: 'Tell us about your project and we’ll guide you.', cta: { label: 'Speak to JAY Builders', target: '#contact' } },
 } as const;
