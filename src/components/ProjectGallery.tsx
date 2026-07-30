@@ -52,8 +52,8 @@ const suppliedThumbnails: Partial<
   'Roofing & Exterior': {
     src: roofingExteriorThumbnail,
     alt: 'Roofing and exterior renovation before and after',
-    width: 1536,
-    height: 1024,
+    width: 1900,
+    height: 828,
   },
 };
 

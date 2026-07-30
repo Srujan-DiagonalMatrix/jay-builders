@@ -1,4 +1,4 @@
-import roofingExteriorThumbnailBase64 from '../../assets-source/images/exterior-property-thumbnail.png.base64?raw';
+import roofingExteriorThumbnailBase64 from '../../assets-source/images/roofing-exterior-thumbnail.png.base64?raw';
 
 /** User-supplied before-and-after thumbnail for the Roofing & Exterior project. */
 export const roofingExteriorThumbnail =
