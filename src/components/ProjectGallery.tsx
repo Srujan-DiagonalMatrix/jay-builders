@@ -1,5 +1,6 @@
 import { fullPropertyRenovationThumbnail } from '../content/full-property-renovation-thumbnail';
 import { getImageAsset } from '../content/image-manifest';
+import { rearExtensionThumbnail } from '../content/rear-extension-thumbnail';
 import { roofingExteriorThumbnail } from '../content/roofing-exterior-thumbnail';
 import { ourWorkContent as content } from '../content/site';
 import { ResponsiveImage } from './ResponsiveImage';
@@ -12,12 +13,20 @@ type SuppliedThumbnail = {
   height: number;
 };
 
-const suppliedThumbnails: Partial<Record<(typeof content.projects)[number]['title'], SuppliedThumbnail>> = {
+const suppliedThumbnails: Partial<
+  Record<(typeof content.projects)[number]['title'], SuppliedThumbnail>
+> = {
   'Full Property Renovation': {
     src: fullPropertyRenovationThumbnail,
     alt: 'Full property renovation before and after',
     width: 1578,
     height: 997,
+  },
+  'Rear Extension': {
+    src: rearExtensionThumbnail,
+    alt: 'Rear extension before and after',
+    width: 1573,
+    height: 1000,
   },
   'Roofing & Exterior': {
     src: roofingExteriorThumbnail,
@@ -32,6 +41,7 @@ export function ProjectGallery() {
     <section id={content.sectionId} className="section section--soft">
       <div className="container">
         <SectionHeading>{content.heading}</SectionHeading>
+
         <div className="projects-grid">
           {content.projects.map((project, index) => {
             const id = `OurWork-project-${String(index + 1).padStart(2, '0')}`;
@@ -39,7 +49,11 @@ export function ProjectGallery() {
 
             return (
               <article className="project-card" key={project.title}>
-                <div className={`project-image${thumbnail ? ' project-image--combined' : ''}`}>
+                <div
+                  className={`project-image${
+                    thumbnail ? ' project-image--combined' : ''
+                  }`}
+                >
                   {thumbnail ? (
                     <img
                       src={thumbnail.src}
@@ -55,16 +69,20 @@ export function ProjectGallery() {
                         asset={getImageAsset(`${id}-before`)}
                         sizes="(max-width: 575px) 50vw, 17vw"
                       />
+
                       <ResponsiveImage
                         asset={getImageAsset(`${id}-after`)}
                         sizes="(max-width: 575px) 50vw, 17vw"
                       />
+
                       <span aria-hidden="true">Before</span>
                       <span aria-hidden="true">After</span>
                     </>
                   )}
                 </div>
+
                 <h3>{project.title}</h3>
+
                 <p>
                   {project.location} <b>{project.duration}</b>
                 </p>
@@ -72,7 +90,11 @@ export function ProjectGallery() {
             );
           })}
         </div>
-        <a className="button button--navy centered-button" href={content.cta.target}>
+
+        <a
+          className="button button--navy centered-button"
+          href={content.cta.target}
+        >
           {content.cta.label}
         </a>
       </div>
