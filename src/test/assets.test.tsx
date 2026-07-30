@@ -67,3 +67,25 @@ it('renders the supplied Kitchen Transformation thumbnail without a binary-file 
   expect(thumbnail).toHaveAttribute('width', '1536');
   expect(thumbnail).toHaveAttribute('height', '1024');
 });
+
+it('renders the Driveway & Landscaping thumbnail without a binary-file dependency', () => {
+  render(<ProjectGallery />);
+
+  const thumbnail = screen.getByAltText(
+    'Driveway and landscaping before and after',
+  );
+
+  const source = thumbnail.getAttribute('src') ?? '';
+  const decoded = Buffer.from(source.split(',')[1], 'base64');
+
+  expect(source).toMatch(/^data:image\/png;base64,/);
+  expect(decoded.subarray(0, 8)).toEqual(
+    Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
+  );
+  expect([decoded.readUInt32BE(16), decoded.readUInt32BE(20)]).toEqual([
+    1596,
+    1140,
+  ]);
+  expect(thumbnail).toHaveAttribute('width', '1596');
+  expect(thumbnail).toHaveAttribute('height', '1140');
+});
