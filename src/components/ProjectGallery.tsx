@@ -1,3 +1,4 @@
+import { drivewayLandscapingThumbnail } from '../content/driveway-landscaping-thumbnail';
 import { fullPropertyRenovationThumbnail } from '../content/full-property-renovation-thumbnail';
 import { getImageAsset } from '../content/image-manifest';
 import { kitchenTransformationThumbnail } from '../content/kitchen-transformation-thumbnail';
@@ -32,6 +33,12 @@ const suppliedThumbnails: Partial<
   'Kitchen Transformation': {
     src: kitchenTransformationThumbnail,
     alt: 'Kitchen transformation before and after',
+    width: 1536,
+    height: 1024,
+  },
+  'Driveway & Landscaping': {
+    src: drivewayLandscapingThumbnail,
+    alt: 'Driveway and landscaping before and after',
     width: 1536,
     height: 1024,
   },
